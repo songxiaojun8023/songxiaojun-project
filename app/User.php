@@ -8,7 +8,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
+
+    /**
+     * 模型中日期字段的存储格式
+     *
+     * @var string
+     */
+    protected $dateFormat = 'U';
 
     /**
      * The attributes that are mass assignable.
