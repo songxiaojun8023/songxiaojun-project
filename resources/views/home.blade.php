@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    {{$question[0]['question']}}
                 </div>
             </div>
         </div>
