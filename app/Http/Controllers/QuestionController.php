@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Answer;
+use App\Question;
 
 class QuestionController extends Controller
 {
@@ -12,31 +14,32 @@ class QuestionController extends Controller
         return view('question.showQuestion');
     }
 
-    //显示指定某个问题详情
+    //显示指定某个问题详情---问题，多个答案，作者，收藏，采纳
     public function showOneQuestion(){
-
-        return view('question.showOneQuestion');
+        $question = new Question();
+        $data = $question->showOneQuestion();//return $data;
+        return view('question.showOneQuestion',$data);
     }
 
     //有答案问题列表
     public function questionAnswerList(){
-
-        return  view('question.questionAnswerList');
+        $question = new Question();
+        $data=$question->questionAnswerList();
+        return  view('question.questionAnswerList',$data);
     }
 
     //无答案问题列表
     public function showQuestionList(){
-
-
-
-
-
-        return  view('question.showQuestionList');
+        $question = new Question();
+        $data = $question->showQuestionList();
+        return  view('question.showQuestionList',$data);
     }
 
-    //无答案问题详情页
+    //无答案问题详情页,一条问题
     public function showNoAnswerQuestion(){
 
+        $question = new Question();
+        $data = $question->showNoAnswerQuestion();
         return  view('question.showNoAnswerQuestion');
     }
 
