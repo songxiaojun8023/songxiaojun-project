@@ -31,11 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::any('question/showOneQuestion','QuestionController@showOneQuestion');
 //————————————————————————————————————————————————————————————————————————————————————————————
     //有答案问题类表
-<<<<<<< HEAD
     Route::any('question/questionAnswerList','QuestionController@questionAnswerList');
-=======
-        Route::any('question/questionAnswerList','QuestionController@questionAnswerList');
->>>>>>> dev
     //无答案问题类表
     Route::any('question/showQuestionList','QuestionController@showQuestionList');
     //无答案详情页
