@@ -21,14 +21,6 @@ class QuestionController extends Controller
     //有答案问题列表
     public function questionAnswerList(){
 
-<<<<<<< HEAD
-
-        
-
-
-
-=======
->>>>>>> dev
         return  view('question.questionAnswerList');
     }
 
