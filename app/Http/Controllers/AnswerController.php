@@ -10,4 +10,11 @@ class AnswerController extends Controller
     public function addAnswer(){
         return ['code'=>200,'message'=>'ok'];
     }
+
+
+    //采纳答案
+    public function collect(){
+
+        return ['code'=>200,'message'=>'ok'];
+    }
 }
