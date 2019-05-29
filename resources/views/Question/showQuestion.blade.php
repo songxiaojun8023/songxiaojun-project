@@ -8,6 +8,9 @@
     <title>搜索</title>
 </head>
 <style type="text/css">
+    div.Allof{
+        margin-top:3%;
+    }
     div.show{
         width: 50%;
         text-align: left;
@@ -32,7 +35,7 @@
     {{--搜索后展示页的搜索框--}}
     <div type="search" align="center">
         <input type="text" style="width: 40%;height: 35px">
-        <button class="layui-btn layui-btn-radius layui-btn-normal">搜索</button>
+        <button class="layui-btn layui-btn-radius layui-btn-normal" id="">搜索</button>
     </div>
 
     <br>
@@ -41,32 +44,31 @@
     <div class="show">
         <dl class="qa">
             <dt class="question">
-                <a href="showOneQuestion">这是问题1</a>
+                <a href="showOneQuestion" id="question_id">这是问题1</a>
             </dt>
-            <dd class="answer">这是答案1</dd>
+            <dd class="answer" id="answer_id">这是答案1</dd>
         </dl>
     </div>
     <br>
     <div class="show">
         <dl class="qa">
             <dt class="question">
-                <a href="showOneQuestion">这是问题2</a>
+                <a href="showOneQuestion" id="question_id">这是问题2</a>
             </dt>
-            <dd class="answer">这是答案2</dd>
+            <dd class="answer" id="answer_id">这是答案2</dd>
         </dl>
     </div>
     <br>
     <div class="show">
         <dl class="qa">
             <dt class="question">
-                <a href="showNoAnswerQuestion">这是问题3</a>
+                <a href="showNoAnswerQuestion" id="question_id">这是问题3</a>
             </dt>
-            <dd class="answer">暂无答案</dd>
+            <dd class="answer" id="answer_id">暂无答案</dd>
         </dl>
     </div>
     <br>
 @endsection
-<script type="text/css" src="../layui/layui.js"></script>
-
+<script type="text/javascript" src="../layui/layui.js" charset="utf-8"></script>
 </body>
 </html>
