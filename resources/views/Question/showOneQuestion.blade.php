@@ -8,6 +8,9 @@
     <title>详情</title>
 </head>
 <style type="text/css">
+    div.Allof{
+        margin-top:3%;
+    }
     div.question{
         height:30%;
     }
@@ -40,15 +43,17 @@
 @section('content')
 <link rel="stylesheet" href="../layui/css/layui.css" media="all">
 
+<div class="Allof">
     {{--问题的标题、作者及发布的时间--}}
     <div class="question">
         <span class="questionTitle">所点击问题的标题</span>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <span class="putWriter">提问者：<a href="">111</a></span>
+        <span class="putWriter">提问者：<a href="" id="uid">111</a></span>
         &nbsp&nbsp&nbsp
-        <span class="putTime">提问时间：2019-05-29</span>
+        <span class="putTime" id="created_at">提问时间：2019-05-29</span>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <button class="layui-btn layui-btn-radius layui-btn-warm" href="">收藏</button>
+        {{--<button class="layui-btn layui-btn-radius layui-btn-warm" href="conllect/conllectQuestion">收藏</button>--}}
+        <a href="../conllect/conllectQuestion" class="layui-btn layui-btn-radius layui-btn-warm" id="question_id">收藏</a>
     </div>
 
     <hr style="width:100%;height:3px;background-color:#000;"/>
@@ -60,11 +65,12 @@
                 请勿欧赔爱上对方过后就开了自行车VB你们请勿欧赔行车VB你
             </span>
             <dd class="respondent">
-                <span class="putWriter">回答者：<a href="">111</a></span>
+                <span class="putWriter">回答者：<a href="" id="uid">111</a></span>
                 &nbsp&nbsp&nbsp
-                <span class="putTime">2019-05-29</span>
+                <span class="putTime" id="created_at">2019-05-29</span>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <button href="" class="layui-btn layui-btn-xs">采纳</button>
+                {{--<button href="answer/collect" class="layui-btn layui-btn-xs">采纳</button>--}}
+                <a href="../answer/collect" class="layui-btn layui-btn-xs" id="answer_id">采纳</a>
             </dd>
         </div>
     </div>
@@ -76,11 +82,11 @@
                 刚问过我写个投入和给我讲股票为评估价王鹏我
             </span>
         <dd class="respondent">
-            <span class="putWriter">回答者：<a href="">222</a></span>
+            <span class="putWriter">回答者：<a href="" id="uid">222</a></span>
             &nbsp&nbsp&nbsp
-            <span class="putTime">2019-03-24</span>
+            <span class="putTime" id="created_at">2019-03-24</span>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <button href="" class="layui-btn layui-btn-xs">采纳</button>
+            <a href="../answer/collect" class="layui-btn layui-btn-xs" id="answer_id">采纳</a>
         </dd>
     </div>
 </div>
@@ -92,16 +98,16 @@
                 我别给我备份违反8位为铺盖我佩服王鹏
             </span>
         <dd class="respondent">
-            <span class="putWriter">回答者：<a href="">333</a></span>
+            <span class="putWriter">回答者：<a href="" id="uid">333</a></span>
             &nbsp&nbsp&nbsp
-            <span class="putTime">2018-6-23</span>
+            <span class="putTime" id="created_at">2018-6-23</span>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <button href="" class="layui-btn layui-btn-xs">采纳</button>
+            <a href="../answer/collect" class="layui-btn layui-btn-xs" id="answer_id">采纳</a>
         </dd>
     </div>
 </div>
 <br><br>
-
+</div>
 @endsection
 <script type="text/css" src="../layui/layui.js"></script>
 </body>
