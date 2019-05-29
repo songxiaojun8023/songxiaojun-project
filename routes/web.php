@@ -29,10 +29,16 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::any('question/showQuest','QuestionController@showQuestion');
     //显示指定一条问题详情
     Route::any('question/showOneQuestion','QuestionController@showOneQuestion');
+//————————————————————————————————————————————————————————————————————————————————————————————
     //有答案问题类表
-    Route::any('question/moreQuestionAnswer','QuestionController@moreQuestionAnswer');
+    Route::any('question/questionAnswerList.php','QuestionController@questionAnswerList.php');
     //无答案问题类表
-    Route::any('question/moreQuestionList','QuestionController@moreQuestionList');
+    Route::any('question/showQuestionList','QuestionController@showQuestionList');
+    //无答案详情页
+    Route::any('question/showNoAnswerQuestion','QuestionController@showNoAnswerQuestion');
+    //提交问题答案
+    Route::any('answer/addAnswer','AnswerController@addAnswer');
+
 //————————————————————————————————————————————————————————————————————————————————————————————
     //发布问题
     Route::any('question/pushQuestion','QuestionController@pushQuestion');

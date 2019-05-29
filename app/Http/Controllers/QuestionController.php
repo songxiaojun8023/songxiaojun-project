@@ -18,16 +18,22 @@ class QuestionController extends Controller
         return view('question.showOneQuestion');
     }
 
-    //最新有答案问题列表
+    //有答案问题列表
     public function moreQuestionAnswer(){
 
         return  view('question.moreQuestionAnswer');
     }
 
-    //最新有答案问题列表
-    public function moreQuestionList(){
+    //无答案问题列表
+    public function showQuestionList(){
 
-        return  view('question.moreQuestionList');
+        return  view('question.showQuestionList');
+    }
+
+    //无答案问题详情页
+    public function showNoAnswerQuestion(){
+
+        return  view('question.showNoAnswerQuestion');
     }
 
     //发布问题
