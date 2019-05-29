@@ -19,13 +19,22 @@ class QuestionController extends Controller
     }
 
     //有答案问题列表
-    public function moreQuestionAnswer(){
+    public function questionAnswerList(){
 
-        return  view('question.moreQuestionAnswer');
+
+        
+
+
+
+        return  view('question.questionAnswerList');
     }
 
     //无答案问题列表
     public function showQuestionList(){
+
+
+
+
 
         return  view('question.showQuestionList');
     }
