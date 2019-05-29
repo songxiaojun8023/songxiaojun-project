@@ -94,6 +94,11 @@ Route::get('/home', 'HomeController@index')->name('home');
     //积分修改
     Route::any('user/editIntegral','UserController@editIntegral');
 
+//-------————————————————————————————————————————————————————————————————————————————————————
+    //点击收藏  conllect/conllectQuestion
+    Route::any('conllect/conllectQuestion','ConllectController@conllectQuestion');
+    //点击采纳
+    Route::any('answer/collect','AnswerController@collect');
 
 
 
