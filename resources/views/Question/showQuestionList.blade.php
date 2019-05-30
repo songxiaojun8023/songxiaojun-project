@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <title>更多</title>
-</head>
+@extends('layout')
+@section('title','test')
+@section('content')
 <style type="text/css">
     div.Allof{
         margin-top:3%;
@@ -25,9 +18,7 @@
         color: #0C0C0C;
     }
 </style>
-<body>
-@extends('layouts.app')
-@section('content')
+
     <div class="Allof">
         <div class="search" align="center">
             <input type="text" style="width: 40%;height: 35px">
@@ -81,5 +72,3 @@
     </script>
 @endsection
 <script type="text/css" src="../layui/layui.js"></script>
-</body>
-</html>
