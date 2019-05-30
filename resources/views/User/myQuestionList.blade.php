@@ -3,38 +3,45 @@
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
-    <div align="center">
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-        <a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy">问题详情页</a>
-    </div>
+
+    <dt id="asd" align="center"></dt>
     <div id="test1" align="center"></div>
 
-    <script src="/static/build/layui.js"></script>
+    {{--<script src="/static/build/layui.js"></script>--}}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+
+        var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];
+        var a = v[0];
+        var date =[];
+        for (i=0;i<a.length;i++){
+            // console.log(a[i]['question']);
+           date.push(a[i]['question']);
+
+        }
+        console.log(date);
+        console.log(a);
+
         layui.use('laypage', function(){
             var laypage = layui.laypage;
 
             //执行一个laypage实例
             laypage.render({
-                elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
-                ,count: 51,
-                limit:3//数据总数，从服务端得到
+                elem: 'test1'
+                ,count: date.length
+                ,limit:3
+                ,jump: function(obj){
+                    //模拟渲染
+                    document.getElementById('asd').innerHTML = function(){
+                        var arr = []
+                            // alert();
+                            ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                        layui.each(thisData, function(index, item){
+                            arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" >'+ item +'</a>');
+                        });
+                        return arr.join('');
+                    }();
+                }
             });
         });
     </script>

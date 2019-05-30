@@ -37,6 +37,18 @@
     dd.respondent a{
         color: #6c757d;
     }
+    div.answerAarea{
+        margin-left: 60px;
+        margin-top: 40px;
+        height: 70%;
+    }
+    .layui-textareaq{
+        width: 80%;
+    }
+    div.push{
+        margin-right: 20%;
+        text-align: right;
+    }
 </style>
 <body>
 @extends('layouts.app')
@@ -107,7 +119,19 @@
     </div>
 </div>
 <br><br>
+
+    {{--分页按钮--}}
     <div id="test1" align="center"></div>
+
+    {{--用户作答区--}}
+    <div class="answerAarea">
+        <textarea name="" required lay-verify="required" placeholder="请输入你的答案" class="layui-textareaq"></textarea>
+    </div>
+    <div class="push">
+        {{--<button href="answer/addAnswer" class="layui-btn">提交</button>--}}
+        <a href="../answer/addAnswer" class="layui-btn" >提交</a>
+    </div>
+
     <script src="../layui/layui.js"></script>
     <script type="text/javascript">
         layui.use('laypage', function(){

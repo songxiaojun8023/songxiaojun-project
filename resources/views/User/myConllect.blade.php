@@ -3,7 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
-    <div class="layui-collapse">
+    <div class="layui-collapse" align="center">
         <div class="layui-colla-item">
             <h2 class="layui-colla-title"><a href="#">1+1=?</a></h2>
             <div class="layui-colla-content layui-show">
@@ -26,3 +26,4 @@
         //…
     });
 </script>
+{{----}}

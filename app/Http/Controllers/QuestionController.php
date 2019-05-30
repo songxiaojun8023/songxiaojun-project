@@ -31,8 +31,9 @@ class QuestionController extends Controller
     //无答案问题列表
     public function showQuestionList(){
         $question = new Question();
-        $data = $question->showQuestionList();
-        return  view('question.showQuestionList')->with('data',$data);
+        $data = $question->showQuestionList();//return $data;
+        return  view('question.showQuestionList')->with('data',json_encode($data));
+
     }
 
     //无答案问题详情页,一条问题

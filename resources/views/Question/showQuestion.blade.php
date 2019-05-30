@@ -31,7 +31,7 @@
 @extends('layouts.app')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-
+    <div class="Allof">
     {{--搜索后展示页的搜索框--}}
     <div type="search" align="center">
         <input type="text" style="width: 40%;height: 35px">
@@ -68,9 +68,11 @@
         </dl>
     </div>
     <br>
+    </div>
     <div id="test1" align="center"></div>
     <script src="../layui/layui.js"></script>
     <script type="text/javascript">
+
         layui.use('laypage', function(){
             var laypage = layui.laypage;
 
