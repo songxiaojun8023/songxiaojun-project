@@ -107,6 +107,22 @@
     </div>
 </div>
 <br><br>
+    <div id="test1" align="center"></div>
+    <script src="../layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+
+            //执行一个laypage实例
+            laypage.render({
+                page:true,
+                elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+                ,count:3 //数据总数，从服务端得到
+                ,limit:1//每页显示的条数
+            });
+        });
+
+    </script>
 </div>
 @endsection
 <script type="text/css" src="../layui/layui.js"></script>
