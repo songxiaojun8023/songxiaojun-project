@@ -1,6 +1,7 @@
 @extends('layout')
 @section('title', 'test')
 @section('content')
+
 <div style="border-bottom:1px solid #B0C4DE;margin-bottom:5px;">
     	<div><p align="center"><b><font size="4" color="#48D1CC">图片识别上传问题：</font></b></p></div>
       
@@ -59,5 +60,5 @@ layui.use('upload', function(){
 			});
 	</script>
   </div>
-  
+
   @endsection
