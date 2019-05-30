@@ -43,7 +43,7 @@ class QuestionController extends Controller
         return  view('question.showNoAnswerQuestion')->with('data',$data);
     }
 
-    //发布问题
+    //发布问题--页面
     public function pushQuestion(){
         return  view('question.pushQuestion');
     }
@@ -63,8 +63,8 @@ class QuestionController extends Controller
     //form表单提交 录入试题
     public function pushFormQuestion(){
 
-
-
+        $question = new Question();
+        $question->addAnswer();
         return ['code'=>200,'message'=>'ok'];
     }
 
