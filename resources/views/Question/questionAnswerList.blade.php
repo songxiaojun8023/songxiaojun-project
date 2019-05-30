@@ -76,19 +76,6 @@
 
 
 </script>
-<<<<<<< HEAD
-    
-=======
-
-<<<<<<< HEAD
-=======
-    </div>
-
-
-
-</div>
-
->>>>>>> dev
 
     @csrf
 
@@ -110,7 +97,7 @@
 
         {{--<dt id="qalist"></dt>--}}
         <div id="test1" align="center"></div>
-    </div>
+    </div   >
 
     <script src="../layui/layui.js"></script>
     <script type="text/javascript">
