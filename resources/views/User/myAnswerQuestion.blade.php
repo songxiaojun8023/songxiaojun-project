@@ -3,9 +3,9 @@
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
-    <div class="layui-collapse">
-        <div class="layui-colla-item">
-            <h2 class="layui-colla-title"><a href="#">1+1=?</a></h2>
+    <div class="layui-collapseMyAnswer" align="center">
+        <div class="layui-collapse">
+            <h2 class="layui-colla-title"><a href="/question/showOneQuestion">1+1=?</a></h2>
             <div class="layui-colla-content layui-show">
                 2
                 {{--删除按钮--}}
@@ -15,6 +15,7 @@
             </div>
 
         </div>
+
     </div>
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
