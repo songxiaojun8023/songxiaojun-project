@@ -1,6 +1,8 @@
-@extends('layouts.app')
+
     {{--用户中心模块--}}
-@section('content')
+    @extends('layout')
+    @section('title', 'test')
+    @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
 

@@ -1,6 +1,8 @@
-@extends('layouts.app')
+
     {{--收藏--}}
-@section('content')
+    @extends('layout')
+    @section('title', 'test')
+    @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
     <div class="layui-collapse" align="center">

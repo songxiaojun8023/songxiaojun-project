@@ -1,5 +1,7 @@
-@extends('layouts.app')
+
 {{--我回答过的问题--}}
+@extends('layout')
+@section('title', 'test')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 

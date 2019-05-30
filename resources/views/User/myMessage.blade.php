@@ -1,7 +1,7 @@
 
 {{--//个人基本信息页面--}}
-@extends('layouts.app')
-
+@extends('layout')
+@section('title', 'test')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
@@ -11,20 +11,20 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" value="{{ Auth::user()->name }}">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码框</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" value="{{ Auth::user()->password }}">
             </div>
-            <div class="layui-form-mid layui-word-aux">辅助文字</div>
+            <div class="layui-form-mid layui-word-aux"></div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">手机号</label>
+            <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入邮箱号" autocomplete="off" class="layui-input"value="{{ Auth::user()->email }}">
             </div>
         </div>
 
