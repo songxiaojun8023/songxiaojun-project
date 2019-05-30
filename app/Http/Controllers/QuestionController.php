@@ -24,7 +24,7 @@ class QuestionController extends Controller
     //有答案问题列表
     public function questionAnswerList(){
         $question = new Question();
-        $data=$question->questionAnswerList();return $data;
+        $data=$question->questionAnswerList();//return $data;
         return  view('question.questionAnswerList')->with('data',$data);
     }
 

@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../layui/css/layui.css" media="all">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <title>更多</title>
 </head>
 <style type="text/css">
@@ -70,6 +71,7 @@
         <script src="../layui/layui.js"></script>
         <script type="text/javascript">
             layui.use('laypage', function(){
+
                 var laypage = layui.laypage;
 
                 //执行一个laypage实例

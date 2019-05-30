@@ -3,25 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Answer;
+use App\User;
 
 class UserController extends Controller
 {
     //用户个人中心
     public function myCenter(){
-
         return view('user.myCenter');
     }
 
     //我发布的问题列表
     public function myQuestionList(){
+        $question = new User();
+        $data=$question->getMyQuestionList();//return $data;
 
-        return view('user.myQuestionList');
+        $v = json_encode($data);
+//        dd($v);
+        return view('user.myQuestionList',['data'=>$v]);
     }
 
     //我回答过的问题列表
     public function  myAnswerQuestion(){
-
-        return view('user.myAnswerQuestion');
+        $question = new User();
+        $data=$question->getMyAnswerQuestion();
+        $v = json_encode($data);
+        return view('user.myAnswerQuestion',['data'=>$v]);
     }
 
     //我的做过的试题列表

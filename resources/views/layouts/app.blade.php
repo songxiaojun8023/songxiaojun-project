@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./layui/css/layui.css">
-    <script src="./layui/layui.js"></script>
+    <script type="text/javascript" src="./layui/layui.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         *{

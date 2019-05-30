@@ -17,13 +17,45 @@
         </div>
 
     </div>
+    <dt id="asd" align="center"></dt>
+    <div id="test1" align="center"></div>
+    <script>
+        var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];
+        var a = v[0];
+        var date =[];
+        for (i=0;i<a.length;i++){
+            // console.log(a[i]['question']);
+            date.push(a[i]['question']);
+
+        }
+        console.log(date);
+        console.log(a);
+
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+
+            //执行一个laypage实例
+            laypage.render({
+                elem: 'test1'
+                ,count: date.length
+                ,limit:3
+                ,jump: function(obj){
+                    //模拟渲染
+                    document.getElementById('asd').innerHTML = function(){
+                        var arr = []
+                            // alert();
+                            ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                        layui.each(thisData, function(index, item){
+                            console.log();
+                            arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" >'+ item +'</a>');
+                        });
+                        return arr.join('');
+                    }();
+                }
+            });
+        });
+
+    </script>
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
-<script>
-    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function(){
-        var element = layui.element;
 
-        //…
-    });
-</script>
