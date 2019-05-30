@@ -110,14 +110,7 @@
 
 
 </script>
-
-    </div>
-
-<<<<<<< HEAD
-=======
-</div>
-
->>>>>>> dev
+    
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
