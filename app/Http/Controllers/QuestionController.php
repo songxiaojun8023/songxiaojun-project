@@ -17,14 +17,14 @@ class QuestionController extends Controller
     //显示指定某个问题详情---问题，多个答案，作者，收藏，采纳
     public function showOneQuestion(){
         $question = new Question();
-        $data = $question->showOneQuestion();//return $data;
-        return view('question.showOneQuestion',$data);
+        $data = $question->showOneQuestion();
+        return view('question.showOneQuestion',$data)->with('data',$data);
     }
 
     //有答案问题列表
     public function questionAnswerList(){
         $question = new Question();
-        $data=$question->questionAnswerList();return $data;
+        $data=$question->questionAnswerList();
         return  view('question.questionAnswerList')->with('data',$data);
     }
 
@@ -32,7 +32,7 @@ class QuestionController extends Controller
     public function showQuestionList(){
         $question = new Question();
         $data = $question->showQuestionList();
-        return  view('question.showQuestionList',$data);
+        return  view('question.showQuestionList')->with('data',$data);
     }
 
     //无答案问题详情页,一条问题
@@ -40,7 +40,7 @@ class QuestionController extends Controller
 
         $question = new Question();
         $data = $question->showNoAnswerQuestion();
-        return  view('question.showNoAnswerQuestion');
+        return  view('question.showNoAnswerQuestion')->with('data',$data);
     }
 
     //发布问题
