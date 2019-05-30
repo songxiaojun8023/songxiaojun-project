@@ -1,9 +1,22 @@
+<<<<<<< HEAD
 
 @extends('layout')
 @section('title','test')
 @section('content')
 
 
+=======
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css" media="all">
+    <title>更多</title>
+</head>
+>>>>>>> songxiaojun_branch
 <style type="text/css">
     div.Allof{
         margin-top:3%;
@@ -30,6 +43,7 @@
 </style>
 
 
+<<<<<<< HEAD
 <div class="Allof">
     <div class="search">
         <input type="text" style="width: 40%;height: 35px">
@@ -47,6 +61,45 @@
     <div id="demo20" class="fen"></div>
 </div>
 
+=======
+{{--    <div class="Allof"  id="demo20">--}}
+{{--        <div class="search" align="center">--}}
+{{--            <input type="text" style="width: 40%;height: 35px">--}}
+{{--            <button class="layui-btn layui-btn-radius layui-btn-normal">搜索</button>--}}
+{{--        </div>--}}
+
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showOneQuestion" id="question_id">这是问题1</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案1</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showOneQuestion" id="question_id">这是问题2</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案2</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showNoAnswerQuestion" id="question_id">这是问题3</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案3</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div id="test1" align="center"></div>--}}
+
+        <div id="demo20"></div>
+        <ul id="biuuu_city_list"></ul>
+>>>>>>> songxiaojun_branch
 
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="../layui/layui.js"></script>
@@ -79,6 +132,14 @@
         });
     });
 </script>
+<<<<<<< HEAD
+=======
+
+    </div>
+
+</div>
+
+>>>>>>> songxiaojun_branch
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
