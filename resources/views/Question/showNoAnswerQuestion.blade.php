@@ -54,7 +54,7 @@
 
     {{--用户作答区--}}
     <div class="answerAarea">
-        <textarea name="" required lay-verify="required" placeholder="请输入" class="layui-textareaq"></textarea>
+        <textarea name="" required lay-verify="required" placeholder="请输入你的答案" class="layui-textareaq"></textarea>
     </div>
     <div class="push">
         {{--<button href="answer/addAnswer" class="layui-btn">提交</button>--}}
