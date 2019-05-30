@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="./layui/css/layui.css">
     <script src="./layui/layui.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<<<<<<< HEAD
+=======
     <style>
         *{
             margin:0;
@@ -113,30 +115,65 @@
             margin-top:5px;
         }
 </style>
+>>>>>>> 249f9f1b2523dc152ad427a0f444176b42656de4
 </head>
 <body>
+
+skdjflksjlkdjflksj {{Route::currentRouteName()}}
     <div id="app">
-        <ul class="layui-nav layui-bg-green" lay-filter="">
-          <li class="layui-nav-item">
-           <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+<<<<<<< HEAD
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                        @if( Route::currentRouteName() != 'login'  &&  Route::currentRouteName() != 'register' )
+
+                            
+
+                        @endif
+
+
+
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+
+                        @guest
+                            <li class="nav-item">
+=======
           </li>
 
                          @guest
                             <li class="nav-right">
+>>>>>>> 249f9f1b2523dc152ad427a0f444176b42656de4
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-right">
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-right">
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+<<<<<<< HEAD
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+=======
 
                                     <font color="black">{{ Auth::user()->name }}</font><span class="caret" ></span>
+>>>>>>> 249f9f1b2523dc152ad427a0f444176b42656de4
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -152,26 +189,19 @@
                                 </div>
                             </li>
                         @endguest
-        </ul>
-
-        <main class="bottom">
-            <div class="left">
-
-            <ul class="layui-nav layui-nav-tree" lay-filter="test">
-            <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-              <li class="layui-nav-item">
-                <a href="user/myCenter">用户中心</a>
-              </li>
-              <li class="layui-nav-item">
-                <a href="question/pushQuestion">发布问题</a>
-              </li>
-              <li class="layui-nav-item">
-                <a href="test/startTest">模拟答题</a>
-              </li>
-            </ul>
+                    </ul>
+                </div>
             </div>
+        </nav>
+
+       
+        <main class="py-4">
             @yield('content')
         </main>
+
     </div>
+
+
+
 </body>
 </html>
