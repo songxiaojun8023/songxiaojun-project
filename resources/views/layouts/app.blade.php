@@ -27,7 +27,7 @@
         }
         .left{
             float:left;
-           
+
             width:200px;
             height:544.5px;
             background:#4E5465;
@@ -37,9 +37,9 @@
             height:56px;
         }
         .bottom{
-           
+
             width:100%;
-            height:544px; 
+            height:544px;
         }
         .layui-nav{
             margin-bottom:0rem;
@@ -54,7 +54,7 @@
                 width:1149px;
                 height:543px;
                 float:right;
-                
+
          }
          .top{
            margin:8px auto;
@@ -64,7 +64,7 @@
             clear:both;
          }
          .center{
-           
+
             width:1120px;
             height:488px;
             margin-left:10px;
@@ -75,31 +75,31 @@
             width:545px;
             height:470px;
             margin-left:7px;
-            margin-top:10px; 
+            margin-top:10px;
             float:left;
          }
          .r_right{
-           
+
             width:540px;
             height:470px;
             margin-right:7px;
-            margin-top:10px; 
+            margin-top:10px;
             float:right;
          }
          .title{
-           
+
             width:180px;
             height:37px;
             margin:2px auto;
          }
          .more{
-           
+
             width:50px;
             height:23px;
             float:right;
          }
          .content{
-           
+
             width:520px;
             height:400px;
             margin-top:28px;
@@ -107,7 +107,7 @@
             margin-right:5px;
          }
         .content li{
-            
+
             width:520px;
             height:28px;
             margin-top:5px;
@@ -122,7 +122,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
           </li>
-          
+
                          @guest
                             <li class="nav-right">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -135,7 +135,7 @@
                         @else
                             <li class="nav-right">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    
+
                                     <font color="black">{{ Auth::user()->name }}</font><span class="caret" ></span>
                                 </a>
 
