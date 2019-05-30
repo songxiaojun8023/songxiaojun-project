@@ -56,18 +56,16 @@
     <script src="../layui/layui.js"></script>
     <script type="text/javascript">
         var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];
-      console.log(v);
-
-
+      // console.log(v);
         var a = v[0];
-        var date = [];
-        for(i=0;i<a.length;i++){
-            // console.log(a[i]['question']);
-            date.push(a[i]['question']);
-        }
+        var date = {!! $data !!};
+        // for(i=0;i<a.length;i++){
+        //     // console.log(a[i]['question']);
+        //     date.push(a[i]['question']);
+        // }
 
-        console.log(v);
-        console.log(a);
+        // console.log(v);
+        // console.log(a);
 
         layui.use(['laypage', 'layer'], function(){
             var laypage = layui.laypage;
@@ -78,11 +76,11 @@
                 ,limit:3
                 ,jump: function(obj){
                     //模拟渲染
-                    document.getElementById('question_id').innerHTML = function(){
+                    document.getElementById('qa').innerHTML = function(){
                         var arr = []
                             ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
-                            arr.push('<a href="showOneQuestion">'+1+'</a>'+'<br /><br />');
+                            arr.push('<a href="showOneQuestion">'+item+'</a>'+'<br /><br />');
                         });
                         return arr.join('');
                     }();
