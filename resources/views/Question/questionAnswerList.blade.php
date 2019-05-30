@@ -31,43 +31,7 @@
 <body>
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
 
-
-{{--    <div class="Allof"  id="demo20">--}}
-{{--        <div class="search" align="center">--}}
-{{--            <input type="text" style="width: 40%;height: 35px">--}}
-{{--            <button class="layui-btn layui-btn-radius layui-btn-normal">搜索</button>--}}
-{{--        </div>--}}
-
-{{--        <div class="show">--}}
-{{--            <dl class="qa">--}}
-{{--                <dt class="question">--}}
-{{--                    <a href="showOneQuestion" id="question_id">这是问题1</a>--}}
-{{--                </dt>--}}
-{{--                <dd class="answer" id="answer_id">这是答案1</dd>--}}
-{{--            </dl>--}}
-{{--        </div>--}}
-{{--        <br>--}}
-{{--        <div class="show">--}}
-{{--            <dl class="qa">--}}
-{{--                <dt class="question">--}}
-{{--                    <a href="showOneQuestion" id="question_id">这是问题2</a>--}}
-{{--                </dt>--}}
-{{--                <dd class="answer" id="answer_id">这是答案2</dd>--}}
-{{--            </dl>--}}
-{{--        </div>--}}
-{{--        <br>--}}
-{{--        <div class="show">--}}
-{{--            <dl class="qa">--}}
-{{--                <dt class="question">--}}
-{{--                    <a href="showNoAnswerQuestion" id="question_id">这是问题3</a>--}}
-{{--                </dt>--}}
-{{--                <dd class="answer" id="answer_id">这是答案3</dd>--}}
-{{--            </dl>--}}
-{{--        </div>--}}
-{{--        <br>--}}
-{{--        <div id="test1" align="center"></div>--}}
 
         <div id="demo20"></div>
         <ul id="biuuu_city_list"></ul>
@@ -114,12 +78,11 @@
 
     </div>
 
-<<<<<<< HEAD
-=======
+
+
 </div>
 
->>>>>>> dev
-=======
+
     @csrf
 
     <div class="Allof">
@@ -177,8 +140,6 @@
             })
         });
     </script>
-
->>>>>>> wangcheng_branch
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
