@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Answer;
-use App\Question;
 
 class QuestionController extends Controller
 {
@@ -14,39 +12,29 @@ class QuestionController extends Controller
         return view('question.showQuestion');
     }
 
-    //显示指定某个问题详情---问题，多个答案，作者，收藏，采纳
+    //显示指定某个问题详情
     public function showOneQuestion(){
-        $question = new Question();
-        $data = $question->showOneQuestion();
-        return view('question.showOneQuestion',$data)->with('data',$data);
+
+        return view('question.showOneQuestion');
     }
 
-    //有答案问题列表
-    public function questionAnswerList(){
-        $question = new Question();
-        $data=$question->questionAnswerList();//return $data;
-        return  view('question.questionAnswerList')->with('data',json_encode($data));
+    //最新有答案问题列表
+    public function moreQuestionAnswer(){
+
+        return  view('question.moreQuestionAnswer');
     }
 
-    //无答案问题列表
-    public function showQuestionList(){
-        $question = new Question();
-        $data = $question->showQuestionList();//return $data;
-        return  view('question.showQuestionList')->with('data',json_encode($data));
+    //最新有答案问题列表
+    public function moreQuestionList(){
 
+        return  view('question.moreQuestionList');
     }
 
-    //无答案问题详情页,一条问题
-    public function showNoAnswerQuestion(){
-
-        $question = new Question();
-        $data = $question->showNoAnswerQuestion();
-        return  view('question.showNoAnswerQuestion')->with('data',$data);
-    }
-
-    //发布问题--页面
+    //发布问题
     public function pushQuestion(){
+
         return  view('question.pushQuestion');
+
     }
 
     //图片识别
@@ -64,8 +52,6 @@ class QuestionController extends Controller
     //form表单提交 录入试题
     public function pushFormQuestion(){
 
-        $question = new Question();
-        $question->addAnswer();
         return ['code'=>200,'message'=>'ok'];
     }
 

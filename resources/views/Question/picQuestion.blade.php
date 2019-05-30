@@ -1,2 +1,5 @@
-<?php
-    echo '这是图片识别出结果的页面，左边图片，有边识别出的结果';
+@extends('layout')
+@section('title', 'test')
+@section('content')
+    这是图片识别后的结果。。
+@endsection
