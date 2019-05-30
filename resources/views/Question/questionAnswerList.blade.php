@@ -66,6 +66,7 @@
     </div>
     <br>
 </div>
+
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
 </body>

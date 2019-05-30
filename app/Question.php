@@ -87,7 +87,7 @@ class Question extends Model
                             return (array)$value;
                         })
                         ->toArray();
-                    $data[$k]['answerList'][]=$arr[0];
+                    $data[$k]['answerList']=$arr[0];
                 }
             }
         }
