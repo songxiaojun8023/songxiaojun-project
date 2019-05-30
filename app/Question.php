@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Answer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
 
@@ -134,11 +135,14 @@ class Question extends Model
             }
         }
 
-
         return $data;
+    }
 
-
-
+    //提交问题答案
+    public function addAnswer(){
+        //数据是from
+        $uid = Auth::id();
+        $question_id = 1; //伪数据
 
 
     }
