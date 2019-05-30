@@ -45,9 +45,7 @@ class QuestionController extends Controller
 
     //发布问题
     public function pushQuestion(){
-
         return  view('question.pushQuestion');
-
     }
 
     //图片识别
@@ -64,6 +62,8 @@ class QuestionController extends Controller
 
     //form表单提交 录入试题
     public function pushFormQuestion(){
+
+
 
         return ['code'=>200,'message'=>'ok'];
     }

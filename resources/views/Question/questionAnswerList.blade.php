@@ -84,11 +84,7 @@
         </script>
 
     </div>
-<<<<<<< HEAD
-    <br>
-</div>
-=======
->>>>>>> wangcheng_branch
+
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
