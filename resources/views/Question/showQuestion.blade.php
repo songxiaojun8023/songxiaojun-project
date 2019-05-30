@@ -1,12 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>搜索</title>
-</head>
+@extends('layout')
+@section('title','test')
+@section('content')
 <style type="text/css">
     div.Allof{
         margin-top:3%;
@@ -27,10 +21,8 @@
     }
 
 </style>
-<body>
-@extends('layouts.app')
-@section('content')
-    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+
+
     <div class="Allof">
     {{--搜索后展示页的搜索框--}}
     <div type="search" align="center">
@@ -88,5 +80,3 @@
     </script>
 @endsection
 <script type="text/javascript" src="../layui/layui.js" charset="utf-8"></script>
-</body>
-</html>
