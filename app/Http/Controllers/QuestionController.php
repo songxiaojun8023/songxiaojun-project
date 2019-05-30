@@ -24,15 +24,17 @@ class QuestionController extends Controller
     //有答案问题列表
     public function questionAnswerList(){
         $question = new Question();
-        $data=$question->questionAnswerList();return $data;
-        return  view('question.questionAnswerList')->with('data',$data);
+        $data=$question->questionAnswerList();//return $data;
+        $v = json_encode($data);
+        return  view('question.questionAnswerList')->with('data',$v);
     }
 
     //无答案问题列表
     public function showQuestionList(){
         $question = new Question();
-        $data = $question->showQuestionList();
-        return  view('question.showQuestionList',$data);
+        $data = $question->showQuestionList();//return $data;
+        $v = json_encode($data);
+        return  view('question.showQuestionList')->with('data',$v);
     }
 
     //无答案问题详情页,一条问题

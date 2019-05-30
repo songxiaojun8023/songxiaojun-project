@@ -41,54 +41,56 @@
 
         <div class="show">
             <dl class="qa">
-                <dt class="question">
-                    <a href="showOneQuestion" id="question_id">这是问题1</a>
+                <dt class="question" id="question_id">
+                    {{--<a href="showOneQuestion" id="question_id"></a>--}}
                 </dt>
                 <dd class="answer" id="answer_id">这是答案1</dd>
             </dl>
         </div>
         <br>
-        <div class="show">
-            <dl class="qa">
-                <dt class="question">
-                    <a href="showOneQuestion" id="question_id">这是问题2</a>
-                </dt>
-                <dd class="answer" id="answer_id">这是答案2</dd>
-            </dl>
-        </div>
-        <br>
-        <div class="show">
-            <dl class="qa">
-                <dt class="question">
-                    <a href="showNoAnswerQuestion" id="question_id">这是问题3</a>
-                </dt>
-                <dd class="answer" id="answer_id">这是答案3</dd>
-            </dl>
-        </div>
-        <br>
+
+        {{--<dt id="qalist"></dt>--}}
         <div id="test1" align="center"></div>
-        <script src="../layui/layui.js"></script>
-        <script type="text/javascript">
-            layui.use('laypage', function(){
-                var laypage = layui.laypage;
-
-                //执行一个laypage实例
-                laypage.render({
-                    page:true,
-                    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
-                    ,count:3 //数据总数，从服务端得到
-                    ,limit:1//每页显示的条数
-                });
-            });
-
-        </script>
-
     </div>
-<<<<<<< HEAD
-    <br>
-</div>
-=======
->>>>>>> wangcheng_branch
+
+    <script src="../layui/layui.js"></script>
+    <script type="text/javascript">
+        var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];
+      console.log(v);
+
+
+        var a = v[0];
+        var date = [];
+        for(i=0;i<a.length;i++){
+            // console.log(a[i]['question']);
+            date.push(a[i]['question']);
+        }
+
+        console.log(v);
+        console.log(a);
+
+        layui.use(['laypage', 'layer'], function(){
+            var laypage = layui.laypage;
+
+            laypage.render({
+                elem: 'test1'
+                ,count: date.length
+                ,limit:3
+                ,jump: function(obj){
+                    //模拟渲染
+                    document.getElementById('question_id').innerHTML = function(){
+                        var arr = []
+                            ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                        layui.each(thisData, function(index, item){
+                            arr.push('<a href="showOneQuestion">'+1+'</a>'+'<br /><br />');
+                        });
+                        return arr.join('');
+                    }();
+                }
+            })
+        });
+    </script>
+
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
