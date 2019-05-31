@@ -1,8 +1,8 @@
 
-    {{--我的问题--}}
-    @extends('layout')
-    @section('title', 'test')
-    @section('content')
+{{--积分--}}
+@extends('layout')
+@section('title', 'test')
+@section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
 
@@ -12,6 +12,9 @@
     {{--<script src="/static/build/layui.js"></script>--}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+
+
+
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};
@@ -27,20 +30,13 @@
                             // alert();
                             ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
-                            // arr.push('<button class="layui-btnMy layui-btn-fluidMy" >'+ item['question'] +'</button>');
-                            arr.push('<button class="layui-btnMy layui-btn-fluidMy">'+ item['question'] +'</button>');
+                            arr.push(item['created_at']+'<h2 class="layui-colla-title">'+ item['todo']+'</h2>');
                         });
                         return arr.join('');
                     }();
                 }
             });
         });
-        // var
-        // $.ajax({
-        //     url:'/question/showOneQuestion',
-        //     type:'type',
-        //     data:{},
-        // })
     </script>
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>

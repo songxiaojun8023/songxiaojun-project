@@ -10,7 +10,17 @@ class UserController extends Controller
 {
     //用户个人中心
     public function myCenter(){
-        return view('user.myCenter');
+        $question = new User();
+        $data=$question->getmyCenter();
+//        dd($data);
+        $c = 0;
+        foreach($data as $k=>$v){
+//             $data[$k]->intgral;
+            $c = $c + $data[$k]->intgral;
+        }
+
+//        dd($c);
+        return view('user.myCenter',['data'=>$c]);
     }
 
     //我发布的问题列表
@@ -33,8 +43,9 @@ class UserController extends Controller
 
     //我的做过的试题列表
     public function myTest(){
-
-        return view('user.myTest');
+        $question = new User();
+        $data=$question->getMyTest();
+        return view('user.myTest',['data'=>$data]);
     }
 
     //我的试题详情
@@ -50,7 +61,9 @@ class UserController extends Controller
     //我的收藏问题列表
     public function myConllect(){
 
-        return view('user.myConllect');
+        $question = new User();
+        $data=$question->getMyCollect();
+        return view('user.myConllect',['data'=>$data]);
     }
 
     //删除我的收藏试题

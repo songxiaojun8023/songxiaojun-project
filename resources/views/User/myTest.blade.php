@@ -5,12 +5,38 @@
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
 
-    <a href="/user/myTestDetail" class="layui-btnMy layui-btn-fluidMy">答过的试卷</a>
+
+    <dt id="asd" align="center"></dt>
+    <div id="test1" align="center"></div>
+
+    {{--<script src="/static/build/layui.js"></script>--}}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
 
 
 
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+            var date = {!! $data !!};
+            //执行一个laypage实例
+            laypage.render({
+                elem: 'test1'
+                ,count: date.length
+                ,limit:3
+                ,jump: function(obj){
+                    //模拟渲染
+                    document.getElementById('asd').innerHTML = function(){
+                        var arr = []
+                            // alert();
+                            ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                            layui.each(thisData, function(index, item){
+                            arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" >'+ item['test_name'] +'</a>');
+                        });
+                        return arr.join('');
+                    }();
+                }
+            });
+        });
+    </script>
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
-<script>
-
-</script>

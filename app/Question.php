@@ -7,6 +7,7 @@ use App\Answer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Input;
 
 class Question extends Model
 {
@@ -66,7 +67,6 @@ class Question extends Model
 
     //有答案问题详情页
     public function questionAnswerList(){
-
         $data = self::where('status','=','1')
             ->get()
             ->toArray();
@@ -112,6 +112,8 @@ class Question extends Model
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
     public function showOneQuestion(){
+        $get = Input::get();
+        dd($get);
         $user = new User();
         //伪数据，真实数据从get得到
         $question_id = 6;

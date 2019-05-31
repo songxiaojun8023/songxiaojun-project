@@ -76,7 +76,23 @@
 
 
 </script>
+<<<<<<< HEAD
+    
+=======
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    </div>
+
+
+
+</div>
+
+>>>>>>> dev
+
+>>>>>>> 76cbef3724e1525d15d5bdaa7977717f9647fcf3
     @csrf
 
     <div class="Allof">

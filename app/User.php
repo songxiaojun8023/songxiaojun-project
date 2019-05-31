@@ -38,18 +38,41 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    //用户个人中心
+    public function getmyCenter(){
+        $id = Auth::id();
+        $data = DB::table('intgral')->where(['user_id'=>$id])->get();
+        return $data;
+    }
+    //我发布的问题列表
     public function getMyQuestionList(){
 
         $id = Auth::id();
         $data = DB::table('question')->where('uid','=',$id)->get();
         return $data;
     }
+    //我回答过的问题列表
     public function getMyAnswerQuestion(){
         $id = Auth::id();
         $data = DB::table('answer')
             ->leftJoin('question','answer.question_id','=','question.question_id')
             ->where('answer.uid','=',$id)
             ->get();
+        return $data;
+    }
+    public function getMyTest(){
+        $id = Auth::id();
+        $data = DB::table('test')->where('uid','=',$id)->get();
+        return $data;
+    }
+    public function getMyCollect(){
+        $id = Auth::id();
+        $data = DB::table('conllect')
+            ->leftJoin('question','conllect.question_id','=','question.question_id')
+            ->leftJoin('answer','question.question_id','=','answer.question_id')
+            ->where('conllect.uid','=',$id)
+            ->get();
+//        dd($data);
         return $data;
     }
 }
