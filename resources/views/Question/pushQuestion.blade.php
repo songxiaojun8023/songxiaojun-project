@@ -4,8 +4,26 @@
 
 <div style="border-bottom:1px solid #B0C4DE;margin-bottom:5px;">
     	<div><p align="center"><b><font size="4" color="#48D1CC">图片识别上传问题：</font></b></p></div>
-      
-  <div style="margin-left:35%;margin-top:2%;margin-bottom:3%;">
+	<div class="checkbox">
+		请选择文本间距
+		<label>
+			<select name="size" id="size">
+
+				@for( $i=1; $i<=20; $i++ )
+					<option value="{{$i*5}}"
+							@if( $i==12 )
+							selected="selected"
+							@endif
+
+					>{{$i*5}}</option>
+				@endfor
+
+
+			</select>
+		</label>
+	</div>
+
+	<div style="margin-left:35%;margin-top:2%;margin-bottom:3%;">
 	  	<button type="button" class="layui-btn" id="test1" style="width:50%;">
 	  <i class="layui-icon">&#xe67c;</i>上传图片
 	</button>
