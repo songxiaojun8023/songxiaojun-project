@@ -102,6 +102,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+    //图片识别测试
+    Route::any('ai/addTest','AiController@addTest');
+
+
+
+
 
 
 
