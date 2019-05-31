@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     //分词搜索后的页面
     Route::any('question/showQuest','QuestionController@showQuestion');
     //显示指定一条问题详情
-    Route::any('question/showOneQuestion','QuestionController@showOneQuestion');
+    Route::any('question/showOneQuestion/{qid}','QuestionController@showOneQuestion');
 //————————————————————————————————————————————————————————————————————————————————————————————
     //有答案问题类表
     Route::any('question/questionAnswerList','QuestionController@questionAnswerList');

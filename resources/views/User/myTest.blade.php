@@ -13,8 +13,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
 
-
-
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};

@@ -14,13 +14,13 @@
                 <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" value="{{ Auth::user()->name }}">
             </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">密码框</label>
-            <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" value="{{ Auth::user()->password }}">
-            </div>
-            <div class="layui-form-mid layui-word-aux"></div>
-        </div>
+        {{--<div class="layui-form-item">--}}
+            {{--<label class="layui-form-label">密码框</label>--}}
+            {{--<div class="layui-input-inline">--}}
+                {{--<input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" value="{{ Auth::user()->password }}">--}}
+            {{--</div>--}}
+            {{--<div class="layui-form-mid layui-word-aux"></div>--}}
+        {{--</div>--}}
         <div class="layui-form-item">
             <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block">

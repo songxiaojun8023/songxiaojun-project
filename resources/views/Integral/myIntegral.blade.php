@@ -30,7 +30,7 @@
                             // alert();
                             ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
-                            arr.push(item['created_at']+'<h2 class="layui-colla-title">'+ item['todo']+'</h2>');
+                            arr.push('<h2 class="layui-colla-title">'+item['created_at']+':'+ item['todo']+'</h2>');
                         });
                         return arr.join('');
                     }();

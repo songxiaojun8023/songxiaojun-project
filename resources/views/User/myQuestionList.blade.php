@@ -15,6 +15,7 @@
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};
+            console.log(date);
             //执行一个laypage实例
             laypage.render({
                 elem: 'test1'
@@ -28,19 +29,29 @@
                             ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
                             // arr.push('<button class="layui-btnMy layui-btn-fluidMy" >'+ item['question'] +'</button>');
-                            arr.push('<button class="layui-btnMy layui-btn-fluidMy">'+ item['question'] +'</button>');
+                            // console.log(item['question_id']);
+                            arr.push('<button class="layui-btnMy layui-btn-fluidMy" id="aaa" onclick="tiao(this)" value="'+item['question_id']+'">'+ item['question'] +'</button>');
+                            // arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" id="aaa" onclick="tiao()" value="'+item['question_id']+'">'+ item['question'] +'</a>');
                         });
                         return arr.join('');
                     }();
                 }
             });
         });
-        // var
-        // $.ajax({
-        //     url:'/question/showOneQuestion',
-        //     type:'type',
-        //     data:{},
-        // })
+
+       function tiao(obj) {
+           //记得记录
+           var aaa = $(obj).attr('value');
+           console.log(aaa);
+        $.ajax({
+            url:'/question/showOneQuestion',
+            type:'get',
+            data:{'qid':aaa},
+            success:function(msg){
+                // window.location.href ='/question/showOneQuestion/{$id}';
+            }
+        })
+        }
     </script>
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>

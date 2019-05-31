@@ -31,6 +31,7 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
+        dd($data);
 //        print_r($data);die;
         return view('question.showOneQuestion',$data)->with('data',json_encode($data));
     }

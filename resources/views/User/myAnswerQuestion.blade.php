@@ -41,9 +41,9 @@
                                 '            <div class="layui-colla-content layui-show">\n' +
                                 '                '+item['answer']+'\n' +
                                 '                {{--删除按钮--}}\n' +
-                                '                <button class="layui-btn layui-btn-xs layui-btn-sm">\n' +
-                                '                    <i class="layui-icon">&#xe640;</i>\n' +
-                                '                </button>\n' +
+                                // '                <button class="layui-btn layui-btn-xs layui-btn-sm">\n' +
+                                // '                    <i class="layui-icon">&#xe640;</i>\n' +
+                                // '                </button>\n' +
                                 '            </div>\n' +
                                 '\n' +
                                 '        </div>\n' +
