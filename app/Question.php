@@ -111,18 +111,25 @@ class Question extends Model
     }
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
+<<<<<<< HEAD
     public function showOneQuestion(){
         $get = Input::get();
         dd($get);
+=======
+    public function showOneQuestion($qid){
+>>>>>>> d0b09e4cda7ad1761cebfeae059c88cec42823e7
         $user = new User();
         //伪数据，真实数据从get得到
-        $question_id = 6;
-        $data = self::where('question_id','=',$question_id)->first()->toArray();
 
-        $answer_id_arr = explode(',',$data['answer_id']);
+        $data = self::where('question_id','=',$qid)->get()->toArray();
+//      print_r($data);die;
+//        echo trim();
+        $answer_id_arr = explode(',',trim($data[0]['answer_id'],","));
+//        unset($answer_id_arr[count($answer_id_arr-1)]);
+//         print_r($answer_id_arr);die;
         foreach ($answer_id_arr as $key=>$val){
             //取3条
-            if($key < 3){
+//            if($key < 3){
                 $arr=DB::table('answer')
                     ->where('answer_id','=',$val)
                     ->orderBy('conllect_num','desc')//排序有问题，因为单条搜索导致
@@ -131,12 +138,14 @@ class Question extends Model
                         return (array)$value;
                     })
                     ->toArray();
-                $data['answerList'][]=$arr[0];
+//            print_r($arr);die;
+                $data[0]['answerList'][]=$arr[0];
                 $user_name = $user::find($arr[0]['uid']);
                 $data['user_name']=$user_name['name'];
-            }
-        }
+//            }
 
+        }
+//        print_r($data);die;
         return $data;
     }
 

@@ -7,14 +7,14 @@
     </div>
     <div style="width:50%;height:50%;float:left;" >
             <div><p align="center"><b><font size="4">有答案列表</font></b></p></div>
-            <div><p align="right"><a href="javascript:;"><font  color="blue">更多>></font></a></div>
+            <div><p align="right"><a href="{{url('question/questionAnswerList')}}"><font  color="blue">更多>></font></a></div>
             <table class="layui-table" lay-even lay-skin="nob" width="600">
                 
 
                  @foreach($questionAnswer as $k=>$v)
                   <thead>
                     <tr>
-                      <th><b><a href="javascript:;"><font color="#00FFF">{{$questionAnswer[$k]['question']}}</font></a></b></th>
+                      <th><b><a href="{{url('question/showOneQuestion')}}?q_id={{$questionAnswer[$k]['question_id']}}"><font color="#00FFF">{{$questionAnswer[$k]['question']}}</font></a></b></th>
                     </tr> 
                   </thead>
                   @foreach($questionAnswer[$k]['answerList'] as $kk=>$vv)
@@ -32,12 +32,12 @@
         </div>
         <div style="width:48%;height:50%;float:right;margin-left:4px;" >
             <div><p align="center"><b><font size="4">无答案列表</font></b></p></div>
-            <div><p align="right"><a href="javascript:;"><font  color="blue">更多>></font></a></div>
+            <div><p align="right"><a href="{{url('question/showQuestionList')}}"><font  color="blue">更多>></font></a></div>
             <table class="layui-table" lay-even lay-skin="nob" width="600">
                  @foreach($question as $k=>$v)
                   <thead>
                     <tr>
-                      <th><b><a href="javascript:;"><font color="#00FFF">{{$questionAnswer[$k]['question']}}</font></a></b></th>
+                      <th><b><a href="{{url('question/showOneQuestion')}}?q_id={{$questionAnswer[$k]['question_id']}}"><font color="#00FFF">{{$questionAnswer[$k]['question']}}</font></a></b></th>
                     </tr> 
                   </thead>
                     @endforeach

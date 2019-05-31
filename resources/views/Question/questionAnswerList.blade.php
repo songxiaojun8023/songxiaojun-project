@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+
+@extends('layout')
+@section('title','test')
+@section('content')
+
+
+=======
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,15 +17,17 @@
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
     <title>更多</title>
 </head>
+>>>>>>> songxiaojun_branch
 <style type="text/css">
     div.Allof{
         margin-top:3%;
-        margin-left:10%;
+    }
+    div.search{
+        margin-left: 10%;
     }
     div.show{
         width: 50%;
-        text-align: left;
-        margin:0 auto;
+        margin-left: 10%;
     }
     dt.question{
         font-size: 20px;
@@ -28,14 +38,72 @@
     dd.answer{
         color: #383d41;
     }
+    div.fen{
+        text-align: center;
+    }
 </style>
-<body>
-@extends('layouts.app')
-@section('content')
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<div class="Allof">
+    <div class="search">
+        <input type="text" style="width: 40%;height: 35px">
+        <button class="layui-btn layui-btn-radius layui-btn-normal">搜索</button>
+    </div>
+    <br />
+        {{--<ul id="biuuu_city_list"></ul>--}}
+    <div class="show">
+        <dl class="qa" id="qa">
+
+        </dl>
+    </div>
+
+    <br />
+    <div id="demo20" class="fen"></div>
+</div>
+
+=======
+{{--    <div class="Allof"  id="demo20">--}}
+{{--        <div class="search" align="center">--}}
+{{--            <input type="text" style="width: 40%;height: 35px">--}}
+{{--            <button class="layui-btn layui-btn-radius layui-btn-normal">搜索</button>--}}
+{{--        </div>--}}
+
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showOneQuestion" id="question_id">这是问题1</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案1</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showOneQuestion" id="question_id">这是问题2</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案2</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div class="show">--}}
+{{--            <dl class="qa">--}}
+{{--                <dt class="question">--}}
+{{--                    <a href="showNoAnswerQuestion" id="question_id">这是问题3</a>--}}
+{{--                </dt>--}}
+{{--                <dd class="answer" id="answer_id">这是答案3</dd>--}}
+{{--            </dl>--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <div id="test1" align="center"></div>--}}
+
+=======
+>>>>>>> parent of dfeaf9f... 增加了AI识别图片
         <div id="demo20"></div>
         <ul id="biuuu_city_list"></ul>
+>>>>>>> songxiaojun_branch
 
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="../layui/layui.js"></script>
@@ -55,29 +123,36 @@
                 limit:3
                 ,jump: function(obj){
                     //模拟渲染
-                    document.getElementById('biuuu_city_list').innerHTML = function(){
+                    document.getElementById('qa').innerHTML = function(){
                         var arr = []
                             ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
-                            arr.push('<li>'+ item['question'] +'' +
-                                '<li>' +item['answerList']['answer'] +'</li></li>');
+                            // console.log(item['question_id']);
+                            arr.push(
+                                '<dt class="question">'
+                                +"<a href='{{url('question/showOneQuestion')}}?q_id="+item['question_id']+"'>"
+                                + item['question']
+                                +'</a>'
+                                +'</dt>'
+                                +'<br />'
+                                +'<dd class="answer">'
+                                +item['answerList']['answer']
+                                +'</dd>'
+                                +'<br /><br />'
+                            );
                         });
                         return arr.join('');
                     }();
                 }
             });
-
         });
-
-
-
     });
-
-
-
 </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
     
+>>>>>>> parent of dfeaf9f... 增加了AI识别图片
 =======
 
 <<<<<<< HEAD
@@ -90,6 +165,9 @@
 
 </div>
 
+<<<<<<< HEAD
+>>>>>>> songxiaojun_branch
+=======
 >>>>>>> dev
 
 >>>>>>> 76cbef3724e1525d15d5bdaa7977717f9647fcf3
@@ -150,9 +228,8 @@
             })
         });
     </script>
+>>>>>>> parent of dfeaf9f... 增加了AI识别图片
 
 >>>>>>> dev
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>
-</body>
-</html>
