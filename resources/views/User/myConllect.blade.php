@@ -1,29 +1,42 @@
-@extends('layouts.app')
+
     {{--收藏--}}
-@section('content')
-    <link rel="stylesheet" href="../layui/css/layui.css">
+    @extends('layout')
+    @section('title', 'test')
+    @section('content')
+        <link rel="stylesheet" href="../layui/css/layui.css">
 
-    <div class="layui-collapse" align="center">
-        <div class="layui-colla-item">
-            <h2 class="layui-colla-title"><a href="#">1+1=?</a></h2>
-            <div class="layui-colla-content layui-show">
-                2
-                {{--删除按钮--}}
-                <button class="layui-btn layui-btn-xs layui-btn-sm">
-                    <i class="layui-icon">&#xe640;</i>
-                </button>
-            </div>
 
-        </div>
-    </div>
-@endsection
-<script type="text/javascript" src="../layui/layui.js"></script>
-<script>
-    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function(){
-        var element = layui.element;
+        <dt id="asd" align="center"></dt>
+        <div id="test1" align="center"></div>
 
-        //…
-    });
-</script>
-{{----}}
+        {{--<script src="/static/build/layui.js"></script>--}}
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+
+
+
+            layui.use('laypage', function(){
+                var laypage = layui.laypage;
+                var date = {!! $data !!};
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'test1'
+                    ,count: date.length
+                    ,limit:3
+                    ,jump: function(obj){
+                        //模拟渲染
+                        document.getElementById('asd').innerHTML = function(){
+                            var arr = []
+                                // alert();
+                                ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+                            layui.each(thisData, function(index, item){
+                                arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" >'+ item['question'] +'</a>');
+                            });
+                            return arr.join('');
+                        }();
+                    }
+                });
+            });
+        </script>
+    @endsection
+    <script type="text/javascript" src="../layui/layui.js"></script>

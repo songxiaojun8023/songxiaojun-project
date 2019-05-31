@@ -100,7 +100,9 @@ Route::get('/home', 'HomeController@index')->name('home');
     //点击采纳
     Route::any('answer/collect','AnswerController@collect');
 
-
+//-------————————————————————————————————————————————————————————————————————————————————————
+    //积分
+    Route::any('integral/myIntegral','IntegralController@myIntegral');
 
     //图片识别测试
     Route::any('ai/addTest','AiController@addTest');

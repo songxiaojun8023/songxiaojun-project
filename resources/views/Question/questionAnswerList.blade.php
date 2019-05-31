@@ -86,8 +86,7 @@
         });
     });
 </script>
-
-
+    <script src="../layui/layui.js"></script>
 
 @endsection
 <script type="text/javascript" src="../layui/layui.js"></script>

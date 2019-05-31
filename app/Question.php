@@ -7,6 +7,7 @@ use App\Answer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Input;
 
 class Question extends Model
 {
@@ -66,7 +67,6 @@ class Question extends Model
 
     //有答案问题详情页
     public function questionAnswerList(){
-
         $data = self::where('status','=','1')
             ->get()
             ->toArray();
