@@ -70,7 +70,19 @@
                         var arr = []
                             ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                         layui.each(thisData, function(index, item){
-                            arr.push('<dt class="question">'+'<a href="showOneQuestion">'+ item['question'] +'</a>'+'</dt>'+'<br />'+'<dd class="answer">'+item['answerList']['answer']+'</dd>'+'<br /><br />');
+                            // console.log(item['question_id']);
+                            arr.push(
+                                '<dt class="question">'
+                                +"<a href='{{url('question/showOneQuestion')}}?q_id="+item['question_id']+"'>"
+                                + item['question']
+                                +'</a>'
+                                +'</dt>'
+                                +'<br />'
+                                +'<dd class="answer">'
+                                +item['answerList']['answer']
+                                +'</dd>'
+                                +'<br /><br />'
+                            );
                         });
                         return arr.join('');
                     }();
