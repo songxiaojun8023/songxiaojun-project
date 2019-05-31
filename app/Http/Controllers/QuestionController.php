@@ -75,11 +75,11 @@ class QuestionController extends Controller
         if(request()->isMethod('post')){
 
 
-    //            //保存到本地磁盘---返回路径
-    //            $path = request()->file('file')->store('work');
-    //            $file_path = public_path().'/upload/'.$path;
-            $file_path = public_path().'/upload/'.'1.png';
-            $path = public_path().'/upload/'.'1.png';
+                //保存到本地磁盘---返回路径
+                $path = request()->file('file')->store('work');
+                $file_path = public_path().'/upload/'.$path;
+//            $file_path = public_path().'/upload/'.'1.png';
+//            $path = public_path().'/upload/'.'1.png';
 
             var_dump(request('size'));
 
