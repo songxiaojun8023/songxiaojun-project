@@ -1,6 +1,7 @@
 @extends('layout')
 @section('title','test')
 @section('content')
+
 <style type="text/css">
     div.Allof{
         margin-top:3%;
@@ -68,15 +69,23 @@
 
     {{--问题所对应的答案、答案作者及回答时间--}}
     <div class="answer">
-        <div class="putAnswer">
 
+        <div class="putAnswer">
+            <span class="reslut">
+                答案
+            </span>
+            <dd class="respondent">
+                <span class="putWrite">作者</span>
+                <span class="putTime">发布答案时间</span>
+                <a href="../answer/collect" class="layui-btn layui-btn-xs">采纳</a>
+            </dd>
         </div>
         <br><br>
+
     </div>
 
 
     {{--分页按钮--}}
-    <div id="demo20" align="center"></div>
 
     {{--用户作答区--}}
     <div class="answerAarea">
@@ -87,64 +96,5 @@
     </div>
 
 </div>
-
-<script type="text/javascript">
-
-    $(function () {
-        layui.use(['laypage', 'layer'], function(){
-            var laypage = layui.laypage
-            //测试数据
-            var data = {!! $data[0]['answerList'] !!};
-            //调用分页
-            laypage.render({
-                elem: 'demo20'
-                ,count: data.length,
-                limit:3
-                ,jump: function(obj){
-                    //模拟渲染
-                    document.getElementById('putAnswer').innerHTML = function(){
-                        var arr = []
-                            ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-                        layui.each(thisData, function(index, item){
-                            console.log(item['answer']);
-                            arr.push(
-
-                                '<span class="reslut">'
-                                + item['answer']
-                                +'</span>'
-
-                                +'<dd class="respondent">'
-                                +'<span class="putWrite">'
-                                // +'回答者:'
-                                +item['answerList']['uid']
-                                +'</span>'
-                                // +'&nbsp&nbsp&nbsp'
-
-                                +'<span class="putTime" id="created_at">'
-                                +item['answerList']['created_at']
-                                +'</span>'
-                                // +'&nbsp&nbsp&nbsp'
-
-                                +'<a href="../answer/collect" class="layui-btn layui-btn-xs" id="answer_id">'
-                                // +'采纳'
-                                +'</a>'
-                                +'</dd>'
-
-                                +'<br /><br />'
-                            );
-                        });
-                        return arr.join('');
-                    }();
-                }
-            });
-        });
-    });
-</script>
-
-
-
-
-
-
-
+<script src="../layui/layui.js"></script>
 @endsection
