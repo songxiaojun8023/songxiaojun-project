@@ -26,10 +26,13 @@ class QuestionController extends Controller
     }
 
     //显示指定某个问题详情---问题，多个答案，作者，收藏，采纳
-    public function showOneQuestion(){
+    public function showOneQuestion(Request $request){
+        $qid = $request->all();
+//        dd($qid);
         $question = new Question();
-        $data = $question->showOneQuestion();
-        return view('question.showOneQuestion',$data)->with('data',$data);
+        $data = $question->showOneQuestion($qid);
+//        print_r($data);die;
+        return view('question.showOneQuestion',$data)->with('data',json_encode($data));
     }
 
     //有答案问题列表
