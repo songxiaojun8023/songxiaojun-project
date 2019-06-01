@@ -34,8 +34,10 @@ class Question extends Model
         foreach ($data as $k=>$v){
           //转变数组
           $answer_id_arr = explode(',',$v['answer_id']);
+          //dd($answer_id_arr);
           //弹出最后一位空值
           array_pop($answer_id_arr);
+          //echo $answer_id_arr;die;
           foreach ($answer_id_arr as $key=>$val){
               //取3条
               if($key < 1){
@@ -52,7 +54,7 @@ class Question extends Model
               }
           }
         }
-
+        //dd($data);
         return $data;
 
 
@@ -143,17 +145,23 @@ class Question extends Model
         return $data;
     }
 
-    //提交问题答案
-    public function addAnswer(){
+    //提交发布的问题：
+    public function addAnswer($question){
+//        echo $question;
+//        echo $img;die;
         //数据是from
         $uid = Auth::id();
-        $question_id = 1; //伪数据
+        //echo $uid;die;
+
+        return $this->insert(["question"=>$question,'uid'=>$uid]);
 
 
     }
 
-
-
-
+    public function moreaddQuestion($question,$img){
+        //echo $question[1];die;
+        return $this->insert(["question"=>$question,'uid'=>$uid,"pic"=>$img]);
+        //return $res;
+    }
 
 }

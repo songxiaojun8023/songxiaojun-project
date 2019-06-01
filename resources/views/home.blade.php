@@ -21,10 +21,7 @@
                   <tbody>
                     <tr>
                       <td>{{$questionAnswer[$k]['answerList'][$kk]['answer']}}</td>
-                      
                     </tr>
-                    
-                     
                   </tbody>
                   @endforeach
                @endforeach
@@ -37,7 +34,7 @@
                  @foreach($question as $k=>$v)
                   <thead>
                     <tr>
-                      <th><b><a href="{{url('question/showOneQuestion')}}?q_id={{$questionAnswer[$k]['question_id']}}"><font color="#00FFF">{{$questionAnswer[$k]['question']}}</font></a></b></th>
+                      <th><b><a href="{{url('question/showOneQuestion')}}?q_id={{$question[$k]['question_id']}}"><font color="#00FFF">{{$question[$k]['question']}}</font></a></b></th>
                     </tr> 
                   </thead>
                     @endforeach
