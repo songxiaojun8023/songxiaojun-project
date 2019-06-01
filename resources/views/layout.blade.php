@@ -7,9 +7,11 @@
   @if(Route::currentRouteName() != 'home')
   	<link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
+    <script src="{{URL::asset('../js/jquery1.12.js')}}"></script>
   @else
-   <link rel="stylesheet" href="../layui/css/layui.css">
-    <script src="../layui/layui.js"></script>
+   <link rel="stylesheet" href="./layui/css/layui.css">
+    <script src="./layui/layui.js"></script>
+    <script src="{{URL::asset('./js/jquery1.12.js')}}"></script>
     @endif
 </head>
 <body class="layui-layout-body">

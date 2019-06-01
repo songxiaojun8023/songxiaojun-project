@@ -71,26 +71,21 @@ class QuestionController extends Controller
 
     //图片识别
     public function PicQuestion(){
-
-        return view('question.picQuestion');
-    }
-
-    //图片识别完成，编辑后上传试题
-    public function addPicQuestion(){
-
+       //dd($request->all());die;
         if(request()->isMethod('post')){
 
 
-                //保存到本地磁盘---返回路径
-                $path = request()->file('file')->store('work');
-                $file_path = public_path().'/upload/'.$path;
+            //保存到本地磁盘---返回路径
+            $path = request()->file('file')->store('upload');
+            //dd($path);die;
+            $file_path = public_path().'/upload/'.$path;
 //            $file_path = public_path().'/upload/'.'1.png';
 //            $path = public_path().'/upload/'.'1.png';
 
-            var_dump(request('size'));
+            //var_dump(request('size'));diel
 
 
-
+            //echo $file_path;die;
 
             //调用OCR接口
             $client = new AipOcr(self::APP_ID, self::API_KEY, self::SECRET_KEY);
@@ -116,7 +111,7 @@ class QuestionController extends Controller
 
                 }else{
 
-    //                    echo $word[$i]['words'].'<br/>';//第一条
+                    //                    echo $word[$i]['words'].'<br/>';//第一条
                 }
 
             }
@@ -148,25 +143,61 @@ class QuestionController extends Controller
             }
 
 
-            array_push($array,$path);
+            array_push($array,"./upload/".$path);
 
 
             static::$array_data = $array;
-            session(['test_data'=>$array]);//识别出的结果存入了session，最后一条数据为图片路径
+            //dd($array);die;
+            session(['test_data'=>$array]);
+            $img = $array[count($array)-1];
+            $num = count($array)-1;
+            unset($array[$num]);
+            //echo $img;die;
+           //识别出的结果存入了session，最后一条数据为图片路径
 
-            var_dump(session('test_data'));
+            //var_dump(session('test_data'));die;
 
 
-    //        return ['code'=>200,'message'=>'ok'];
+            //        return ['code'=>200,'message'=>'ok'];
+        }
+
+        return view('question.picQuestion',["img"=>$img,"data"=>$array]);
+    }
+
+    //图片识别完成，编辑后上传试题
+    public function addPicQuestion(Request $request){
+        $post = $request->all();
+        //print_r($post);die;
+        $question = new Question();
+        $img = session('test_data');
+        $src = $img[count($img)-1];
+        for($i=0;$i<count($post['question']);$i++){
+            $res = $question->addAnswer($post['question'][$i],$src);
+        }
+        //$question->addAnswer($post['question']);
+        if($res){
+            return redirect("user/myQuestionList");
+        }else{
+            echo "添加失败<br/>";
+            echo "<a href='url(question/pushQuestion)'>返回</a>";
         }
     }
 
     //form表单提交 录入试题
-    public function pushFormQuestion(){
+    public function pushFormQuestion(Request $request){
+        $post = $request->all();
+        //print_r($post);die;
+        //$arr =session('test_data');
 
         $question = new Question();
-        $question->addAnswer();
-        return ['code'=>200,'message'=>'ok'];
+        $res = $question->moreaddQuestion($post['desc']);
+        //var_dump($res);die;
+        if($res){
+          return redirect("user/myQuestionList");
+        }else{
+            echo "添加失败<br/>";
+            echo "<a href='url(question/pushQuestion)'>返回</a>";
+        }
     }
 
 
