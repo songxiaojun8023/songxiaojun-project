@@ -27,7 +27,7 @@
 
         <div class="show">
             <dl class="qa">
-                <dt class="question" id="question_id">
+                <dt class="question" id="question">
                     {{--<a href="showNoAnswerQuestion" id="question_id">这是问题1</a>--}}
                 </dt>
             </dl>
@@ -35,40 +35,42 @@
     <br>
 
         <div id="test1" align="center"></div>
-        <script src="../layui/layui.js"></script>
+
 </div>
-    <script>
-        var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];
-        var a = v[0];
-        var date = [];
-        for(i=0;i<a.length;i++){
-            // console.log(a[i]['question']);
-            date.push(a[i]['question']);
-        }
 
-        console.log(v);
-        console.log(a);
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
 
-        layui.use(['laypage', 'layer'], function(){
+    $(function () {
+        layui.use(['laypage', 'layer'], function () {
             var laypage = layui.laypage;
+            var data = {!! $data !!};
 
             laypage.render({
                 elem: 'test1'
-                ,count: date.length
-                ,limit:3
-                ,jump: function(obj){
+                , count: data.length
+                , limit: 3
+                , jump: function (obj) {
                     //模拟渲染
-                    document.getElementById('question_id').innerHTML = function(){
+                    document.getElementById('question').innerHTML = function () {
                         var arr = []
-                            ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-                        layui.each(thisData, function(index, item){
-                            arr.push('<a href="showNoAnswerQuestion">'+ item +'</a>'+'<br /><br />');
+                            , thisData = data.concat().splice(obj.curr * obj.limit - obj.limit, obj.limit);
+                        layui.each(thisData, function (index, item) {
+                            arr.push(
+                                "<a href='{{url('question/showNoAnswerQuestion')}}?q_id=" + item['question_id'] + "'>"
+                                + item['question']
+                                + "</a>"
+                                + "<br /><br />"
+                            );
                         });
                         return arr.join('');
                     }();
                 }
             })
         });
-    </script>
+    });
+</script>
+<script src="../layui/layui.js"></script>
+
 @endsection
-<script type="text/css" src="../layui/layui.js"></script>
+<script type="text/javascript" src="../layui/layui.js"></script>

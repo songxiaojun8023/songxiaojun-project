@@ -31,8 +31,9 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
-//        print_r($data[0]['answerList'][0]['answer']);die;
-        return view('question.showOneQuestion',$data)->with('data',json_encode($data));
+//        dd($data);
+//        print_r($data);die;
+        return view('question.showOneQuestion')->with('data',$data);
     }
 
     //有答案问题列表
@@ -52,10 +53,12 @@ class QuestionController extends Controller
     }
 
     //无答案问题详情页,一条问题
-    public function showNoAnswerQuestion(){
-
+    public function showNoAnswerQuestion(Request $request){
+        $qid = $request->all();
+//        dd($qid);
         $question = new Question();
-        $data = $question->showNoAnswerQuestion();
+        $data = $question->showNoAnswerQuestion($qid);
+//        print_r($data);die;
         return  view('question.showNoAnswerQuestion')->with('data',$data);
     }
 

@@ -104,18 +104,40 @@ class Question extends Model
     }
 
     //指定问题详情页--无答案
-    public function showNoAnswerQuestion(){
+    public function showNoAnswerQuestion($qid){
+//        print_r($qid);die;
         //伪数据，真实数据从get得到
-        $question_id = 9;
-        return self::where('question_id','=',$question_id)->first();
+        $user = new User();
+        //伪数据，真实数据从get得到
+
+        $data = DB::table('question')
+            ->leftJoin('users','question.uid','=','users.id')
+            ->where('question.question_id','=',$qid)
+            ->get()
+            ->map(function ($value) {
+                return (array)$value;
+            })
+            ->toArray();
+//        print_r($data);die;
+        return $data;
     }
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
     public function showOneQuestion($qid){
+//        print_r($qid);die;
         $user = new User();
         //伪数据，真实数据从get得到
 
-        $data = self::where('question_id','=',$qid)->get()->toArray();
+        $data = DB::table('question')
+            ->leftJoin('users','question.uid','=','users.id')
+            ->where('question.question_id','=',$qid)
+            ->get()
+            ->map(function ($value) {
+                return (array)$value;
+            })
+            ->toArray();
+
+
 //      print_r($data);die;
 //        echo trim();
         $answer_id_arr = explode(',',trim($data[0]['answer_id'],","));
@@ -124,10 +146,11 @@ class Question extends Model
         foreach ($answer_id_arr as $key=>$val){
             //取3条
 //            if($key < 3){
-                $arr=DB::table('answer')
-                    ->where('answer_id','=',$val)
-                    ->orderBy('conllect_num','desc')//排序有问题，因为单条搜索导致
-                    ->get()
+            $arr = DB::table('answer')
+                ->leftjoin('users','answer.uid','=','users.id')
+                ->where('answer.answer_id','=',$val)
+                ->orderBy('conllect_num','desc')
+                ->get()
                     ->map(function ($value) {
                         return (array)$value;
                     })
