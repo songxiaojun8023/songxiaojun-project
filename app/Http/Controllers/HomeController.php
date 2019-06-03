@@ -32,7 +32,6 @@ class HomeController extends Controller
         $data['question']=$question->getQuestionLists();
         //有答案类表
         $data['questionAnswer']=$question->getQuestionAnswerList();
-
         return view('home',$data);
     }
 }

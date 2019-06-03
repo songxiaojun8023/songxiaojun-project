@@ -50,6 +50,8 @@ class UserController extends Controller
 
     //我的试题详情
     public function myTestDetail(){
+        $question = new User();
+        $data=$question->getMyTrstDetail();
         return view('user.myTestDetail');
     }
 

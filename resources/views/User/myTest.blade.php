@@ -28,7 +28,7 @@
                             // alert();
                             ,thisData = date.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
                             layui.each(thisData, function(index, item){
-                            arr.push('<a href="/question/showOneQuestion" class="layui-btnMy layui-btn-fluidMy" >'+ item['test_name'] +'</a>');
+                            arr.push('<a href="/user/myTestDetail?pid='+item['test_id']+'" class="layui-btnMy layui-btn-fluidMy" >'+ item['test_name'] +'</a>');
                         });
                         return arr.join('');
                     }();

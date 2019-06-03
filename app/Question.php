@@ -111,13 +111,7 @@ class Question extends Model
     }
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
-<<<<<<< HEAD
-
     public function showOneQuestion($qid){
-//        dd($qid);
-=======
-    public function showOneQuestion($qid){
->>>>>>> dev
         $user = new User();
         //伪数据，真实数据从get得到
         $data = self::where('question_id','=',$qid)->get()->toArray();
