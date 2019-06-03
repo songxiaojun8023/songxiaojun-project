@@ -129,7 +129,7 @@ class Question extends Model
 
 //        dd($qid);
 
-    public function showOneQuestion($qid){
+   
 
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
