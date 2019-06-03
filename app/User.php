@@ -49,7 +49,7 @@ class User extends Authenticatable
     public function getMyQuestionList(){
 
         $id = Auth::id();
-        $data = DB::table('question')->where('uid','=',$id)->get();
+        $data = DB::table('question')->where('uid','=',$id)->orderBy('question_id','desc')->get();
         return $data;
     }
     //我回答过的问题列表
@@ -58,9 +58,11 @@ class User extends Authenticatable
         $data = DB::table('answer')
             ->leftJoin('question','answer.question_id','=','question.question_id')
             ->where('answer.uid','=',$id)
+            ->orderBy('question.question_id','desc')
             ->get();
         return $data;
     }
+    //试卷展示页
     public function getMyTest(){
         $id = Auth::id();
         $data = DB::table('test')->where('uid','=',$id)->get();
@@ -76,15 +78,25 @@ class User extends Authenticatable
 //        dd($data);
         return $data;
     }
+    //试卷详情页
     public function getMyTrstDetail(){
+        //获取前台传过来的ID值
         $pid = Input::get();
-
+        //用前台传过来ID值来查询这个试卷的信息
         $data = DB::table('test')->where('test_id','=',$pid)->get();
-        dd($data);
-        $id = $data[0]->question_id;
+//        dd($pid);
+        $question_id = $data[0]->question_id;
+        $answer_id = $data[0]->answer_id;
         //查找questtion里面的 id .取问题名，取完问题名字还要取到答案名字
-        $date = DB::table('question')->where();
-        dd($id);
+        $date = DB::table('test')->where('test_id','=',$pid)
+                    ->leftJoin('question','test.question_id','=','question.question_id')
+                    ->where('question.question_id','=',$question_id)
+                    ->leftJoin('answer','question.question_id','=','answer.question_id')
+                    ->where('answer.answer_id','=',$answer_id)
+                    ->orderBy('test_id','desc')
+                    ->get();
+//        dd($date);
+        return $date;
     }
     public function up_user($username,$email){
         $id = Auth::id();

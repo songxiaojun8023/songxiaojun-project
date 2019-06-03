@@ -7,6 +7,8 @@
 
     <dt id="asd" align="center"></dt>
     <div id="test1" align="center"></div>
+    <a href="/user/myCenter"class="layui-btn layui-btn-normal">返回</a>
+
     <script>
         {{--var v = [eval('{{$data}}'.replace(/&quot;/g,'"'))];--}}
         {{--var a = v[0];--}}

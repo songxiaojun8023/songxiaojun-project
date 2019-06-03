@@ -44,7 +44,7 @@ class Integral  extends Authenticatable
     ];
     public function myIntegral(){
         $id = Auth::id();
-        $data = DB::table('intgral')->where(['user_id'=>1])->get();
+        $data = DB::table('intgral')->where(['user_id'=>$id])->orderBy('intgral_id','desc')->get();
 //        dd($data);
         return $data;
     }
