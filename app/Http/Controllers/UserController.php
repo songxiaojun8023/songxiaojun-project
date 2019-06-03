@@ -52,7 +52,8 @@ class UserController extends Controller
     public function myTestDetail(){
         $question = new User();
         $data=$question->getMyTrstDetail();
-        return view('user.myTestDetail');
+//        dd($data);
+        return view('user.myTestDetail',['data'=>$data]);
     }
 
     //删除指定试卷

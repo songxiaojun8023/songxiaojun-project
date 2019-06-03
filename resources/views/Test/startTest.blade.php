@@ -52,7 +52,7 @@
                 success:function(msg){
                     if(msg){
                         alert('成功');
-                        window.location.href = "http://guopenghang.tt/user/myCenter";
+                        window.location.href = "http://guopenghang.tt/user/myTest";
                     }
                 }
             })
