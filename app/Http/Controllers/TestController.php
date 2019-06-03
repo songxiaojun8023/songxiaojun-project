@@ -17,7 +17,9 @@ class TestController extends Controller
 
     //处理用户作答完毕的试卷
     public function addTest(){
-
-        return ['code'=>200,'message'=>'ok'];
+        $question = new Test();
+        $data=$question->getAddTest();
+//        dd($data);
+        return ['code'=>200,'message'=>'true'];
     }
 }

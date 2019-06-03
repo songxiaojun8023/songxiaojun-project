@@ -52,15 +52,17 @@
 
 <div class="Allof">
     {{--问题的标题、作者及发布的时间--}}
+
     <div class="question">
-        <span class="questionTitle">所点击问题的标题</span>
+        <span class="questionTitle">{{$data[0]['question']}}</span>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <span class="putWriter">提问者：<a href="" id="uid">111</a></span>
+        <span class="putWriter">提问者：{{$data[0]['name']}}</span>
         &nbsp&nbsp&nbsp
-        <span class="putTime" id="created_at">提问时间：2019-05-29</span>
+        <span class="putTime" id="created_at">提问时间：{{$data[0]['created_at']}}</span>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         {{--<button class="layui-btn layui-btn-radius layui-btn-warm" href="conllect/conllectQuestion">收藏</button>--}}
-        <a href="../conllect/conllectQuestion" class="layui-btn layui-btn-radius layui-btn-warm" id="question_id">收藏</a>
+        <a href="{{url('../conllect/conllectQuestion')}}?q_id={{$data[0]['question_id']}}" class="layui-btn layui-btn-radius layui-btn-warm">收藏</a>
+        {{--          <a href="{{url('../conllect/conllectQuestion')}}?q_id=['question_id']">         --}}
     </div>
 
     <div class="hr">
@@ -69,19 +71,20 @@
 
     {{--问题所对应的答案、答案作者及回答时间--}}
     <div class="answer">
-
+    @foreach($data[0]['answerList'] as $k=>$v)
         <div class="putAnswer">
             <span class="reslut">
-                答案
+                {{$data[0]['answerList'][$k]['answer']}}
             </span>
             <dd class="respondent">
-                <span class="putWrite">作者</span>
-                <span class="putTime">发布答案时间</span>
-                <a href="../answer/collect" class="layui-btn layui-btn-xs">采纳</a>
+                <span class="putWrite">回答者：{{$data[0]['answerList'][$k]['name']}}</span>
+                &nbsp&nbsp&nbsp
+                <span class="putTime">回答时间：{{$data[0]['answerList'][$k]['created_at']}}</span>
+                <a href="../answer/collect" class="layui-btn layui-btn-xs" id="{{$data[0]['answerList'][0]['answer_id']}}">采纳</a>
             </dd>
         </div>
         <br><br>
-
+    @endforeach
     </div>
 
 
@@ -90,10 +93,13 @@
     {{--用户作答区--}}
     <div class="answerAarea">
         <textarea name="" required lay-verify="required" placeholder="请输入你的答案" class="layui-textareaq"></textarea>
+
+        <div class="push">
+            <a href="../answer/addAnswer" class="layui-btn" id="">提交</a>
+        </div>
+
     </div>
-    <div class="push">
-        <a href="../answer/addAnswer" class="layui-btn" >提交</a>
-    </div>
+
 
 </div>
 <script src="../layui/layui.js"></script>

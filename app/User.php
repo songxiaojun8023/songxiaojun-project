@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 
 class User extends Authenticatable
@@ -74,5 +75,15 @@ class User extends Authenticatable
             ->get();
 //        dd($data);
         return $data;
+    }
+    public function getMyTrstDetail(){
+        $pid = Input::get();
+
+        $data = DB::table('test')->where('test_id','=',$pid)->get();
+        dd($data);
+        $id = $data[0]->question_id;
+        //查找questtion里面的 id .取问题名，取完问题名字还要取到答案名字
+        $date = DB::table('question')->where();
+        dd($id);
     }
 }

@@ -37,7 +37,7 @@
                         layui.each(thisData, function(index, item){
                             arr.push('<div class="layui-collapseMyAnswer" align="center">\n' +
                                 '        <div class="layui-collapse">\n' +
-                                '            <h2 class="layui-colla-title"><a href="/question/showOneQuestion">'+ item['question'] +'</a></h2>\n' +
+                                '            <h2 class="layui-colla-title"><a href="/question/showOneQuestion?q_id='+item['question_id']+'">'+ item['question'] +'</a></h2>\n' +
                                 '            <div class="layui-colla-content layui-show">\n' +
                                 '                '+item['answer']+'\n' +
                                 '                {{--删除按钮--}}\n' +
