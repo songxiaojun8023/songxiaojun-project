@@ -129,9 +129,6 @@ class Question extends Model
 //        print_r($qid);die;
         $user = new User();
         //伪数据，真实数据从get得到
-<<<<<<< HEAD
-        $data = self::where('question_id','=',$qid)->get()->toArray();
-=======
 
         $data = DB::table('question')
             ->leftJoin('users','question.uid','=','users.id')
@@ -143,7 +140,6 @@ class Question extends Model
             ->toArray();
 
 
->>>>>>> wangcheng_branch
 //      print_r($data);die;
 //        echo trim();
         $answer_id_arr = explode(',',trim($data[0]['answer_id'],","));

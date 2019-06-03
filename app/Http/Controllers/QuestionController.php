@@ -31,15 +31,11 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
-<<<<<<< HEAD
 //        print_r($data[0]['answerList'][0]['answer']);die;
 
-        return view('question.showOneQuestion',$data)->with('data',json_encode($data));
-=======
 //        dd($data);
 //        print_r($data);die;
         return view('question.showOneQuestion')->with('data',$data);
->>>>>>> wangcheng_branch
     }
 
     //有答案问题列表
