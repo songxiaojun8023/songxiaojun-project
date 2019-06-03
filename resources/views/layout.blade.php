@@ -4,7 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>答题系统大布局 - Layui</title>
-  @if(Route::currentRouteName() != 'home')
+
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+@if(Route::currentRouteName() != 'home')
   	<link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
     <script src="{{URL::asset('../js/jquery1.12.js')}}"></script>

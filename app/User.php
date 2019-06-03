@@ -30,7 +30,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
-
+    public $table = 'users';
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -85,5 +85,9 @@ class User extends Authenticatable
         //查找questtion里面的 id .取问题名，取完问题名字还要取到答案名字
         $date = DB::table('question')->where();
         dd($id);
+    }
+    public function up_user($username,$email){
+        $id = Auth::id();
+      return $this->where("id",$id)->update(["name"=>$username,"email"=>$email]);
     }
 }

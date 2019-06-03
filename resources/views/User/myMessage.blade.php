@@ -11,7 +11,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" value="{{ Auth::user()->name }}">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" id="username" value="{{ Auth::user()->name }}">
             </div>
         </div>
         {{--<div class="layui-form-item">--}}
@@ -24,13 +24,13 @@
         <div class="layui-form-item">
             <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入邮箱号" autocomplete="off" class="layui-input"value="{{ Auth::user()->email }}">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入邮箱号" autocomplete="off" id="email" class="layui-input" value="{{ Auth::user()->email }}">
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">修改</button>
+                <button type="button" class="layui-btn" lay-submit lay-filter="formDemo" onclick="up()">修改</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -53,4 +53,22 @@
             return false;
         });
     });
+    function up() {
+        var username = $("#username").val();
+        var email = $("#email").val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "POST",
+            dataType:"json",
+            url: "{{url('user/doEditMyMessage')}}",
+            data: "username="+username+"&email="+email,
+            success: function(msg){
+                alert(msg.message);
+            }
+        });
+    }
 </script>

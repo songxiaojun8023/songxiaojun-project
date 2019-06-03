@@ -129,12 +129,12 @@ class Question extends Model
 
 //        dd($qid);
 
-   
+
 
 
     //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
     public function showOneQuestion($qid){
-//        print_r($qid);die;
+//            print_r($qid);die;
 
         $user = new User();
         //伪数据，真实数据从get得到

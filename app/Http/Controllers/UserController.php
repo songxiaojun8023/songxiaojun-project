@@ -90,8 +90,17 @@ class UserController extends Controller
     }
 
     //处理修改
-    public function doEditMyMessage(){
-        return ['code'=>200,'message'=>'ok'];
+    public function doEditMyMessage(Request $request){
+        $post = $request->all();
+       // print_r($post);die;
+        $user = new User();
+        $res = $user->up_user($post['username'],$post['email']);
+        //return ['code'=>200,'message'=>'ok'];
+        if($res){
+            return json_encode(["message"=>'修改成功',"code"=>200]);
+        }else{
+            return json_encode(["message"=>'修改失败',"code"=>202]);
+        }
     }
 
 }
