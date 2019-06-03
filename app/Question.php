@@ -139,8 +139,6 @@ class Question extends Model
         $user = new User();
         //伪数据，真实数据从get得到
 
-        $data = self::where('question_id','=',$qid)->get()->toArray();
-
 
         $data = DB::table('question')
             ->leftJoin('users','question.uid','=','users.id')
@@ -150,7 +148,6 @@ class Question extends Model
                 return (array)$value;
             })
             ->toArray();
-
 
 
 //      print_r($data);die;

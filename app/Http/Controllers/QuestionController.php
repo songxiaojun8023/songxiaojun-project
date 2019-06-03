@@ -31,6 +31,7 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
+<<<<<<< HEAD
 
 
         //dd($data);
@@ -44,6 +45,13 @@ class QuestionController extends Controller
 //        print_r($data);die;
         return view('question.showOneQuestion')->with('data',$data);
 
+=======
+//        print_r($data[0]['answerList'][0]['answer']);die;
+
+//        dd($data);
+//        print_r($data);die;
+        return view('question.showOneQuestion')->with('data',$data);
+>>>>>>> dev
     }
 
     //有答案问题列表
