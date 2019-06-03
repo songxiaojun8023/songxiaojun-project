@@ -31,12 +31,9 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
-<<<<<<< HEAD
-        dd($data);
-//        print_r($data);die;
-=======
-//        print_r($data[0]['answerList'][0]['answer']);die;
->>>>>>> dev
+
+        //dd($data);
+
         return view('question.showOneQuestion',$data)->with('data',json_encode($data));
     }
 
@@ -172,7 +169,7 @@ class QuestionController extends Controller
         $img = session('test_data');
         $src = $img[count($img)-1];
         for($i=0;$i<count($post['question']);$i++){
-            $res = $question->addAnswer($post['question'][$i],$src);
+            $res = $question->moreaddQuestion($post['question'][$i],$src);
         }
         //$question->addAnswer($post['question']);
         if($res){
@@ -190,7 +187,7 @@ class QuestionController extends Controller
         //$arr =session('test_data');
 
         $question = new Question();
-        $res = $question->moreaddQuestion($post['desc']);
+        $res = $question->addAnswer($post['desc']);
         //var_dump($res);die;
         if($res){
           return redirect("user/myQuestionList");

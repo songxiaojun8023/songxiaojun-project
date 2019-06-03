@@ -112,14 +112,13 @@ class Question extends Model
         return self::where('question_id','=',$question_id)->first();
     }
 
-    //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳
-<<<<<<< HEAD
+    //显示指定某个问题详情---   一个问题，多个答案，作者，收藏，采纳<<<<<<< HEAD
+
+
+//        dd($qid);
 
     public function showOneQuestion($qid){
-//        dd($qid);
-=======
-    public function showOneQuestion($qid){
->>>>>>> dev
+
         $user = new User();
         //伪数据，真实数据从get得到
         $data = self::where('question_id','=',$qid)->get()->toArray();
@@ -166,6 +165,7 @@ class Question extends Model
 
     public function moreaddQuestion($question,$img){
         //echo $question[1];die;
+        $uid = Auth::id();
         return $this->insert(["question"=>$question,'uid'=>$uid,"pic"=>$img]);
         //return $res;
     }
