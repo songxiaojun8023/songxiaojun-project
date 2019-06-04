@@ -78,13 +78,15 @@
         <span class="reslut">
             {{$data[0]['answerList'][$k]['answer']}}
         </span>
+        {{$data[0]['answerList'][$k]['uid']}}
+        <input type="hidden" id="au{{$data[0]['answerList'][$k]['uid']}}" name="au" value="{{$data[0]['answerList'][$k]['uid']}}">
         <dd class="respondent">
-            <span class="putWrite"> 回答者：<input type="hidden" id="au" name="au" value="{{$data[0]['answerList'][$k]['uid']}}">{{$data[0]['answerList'][$k]['name']}}</span>
+            <span class="putWrite"> 回答者：{{$data[0]['answerList'][$k]['name']}}</span>
             &nbsp&nbsp&nbsp
             <span class="putTime">回答时间：{{$data[0]['answerList'][$k]['created_at']}}</span>
             {{--<a href="{{url('../answer/collect')}}?q_id={{$data[0]['answerList'][0]['answer_id']}}" class="layui-btn layui-btn-xs">采纳</a>--}}
         </dd>
-        <button id="col" onclick="addcol({{$data[0]['answerList'][$k]['answer_id']}})" class="layui-btn layui-btn-xs">采纳</button>
+        <button id="col" onclick="addcol({{$data[0]['answerList'][$k]['answer_id']}},{{$data[0]['answerList'][$k]['uid']}})" class="layui-btn layui-btn-xs">采纳</button>
     </div>
         <br><br>
     @endforeach
@@ -133,12 +135,12 @@
 </script>
 
 <script>
-    function addcol(aid){
+    function addcol(aid,au){
         // alert(id);
-        var au = $('#au').val();
+        // var au = $('#au').val();
         console.log(aid);
         console.log(au);
-        $('#col').attr("disabled","disabled");
+        // $('#col').attr("disabled","disabled");
         $.ajax({
             url:'../answer/collect',
             type:'get',
