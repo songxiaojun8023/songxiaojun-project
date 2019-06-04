@@ -65,7 +65,7 @@ class User extends Authenticatable
     //试卷展示页
     public function getMyTest(){
         $id = Auth::id();
-        $data = DB::table('test')->where('uid','=',$id)->get();
+        $data = DB::table('test')->where('uid','=',$id)->orderBy('question_id','desc')->get();
         return $data;
     }
     public function getMyCollect(){
@@ -83,20 +83,57 @@ class User extends Authenticatable
         //获取前台传过来的ID值
         $pid = Input::get();
         //用前台传过来ID值来查询这个试卷的信息
-        $data = DB::table('test')->where('test_id','=',$pid)->get();
-//        dd($pid);
-        $question_id = $data[0]->question_id;
-        $answer_id = $data[0]->answer_id;
+        $data = DB::table('test')->where('test_id','=',$pid)->get()
+            ->map(function($value){
+                return (array)$value;
+            })
+            ->toArray();
+
+        $question = $data[0]['question_id'];
+        $question_id = explode(',',trim($question,","));
+        $answer = $data[0]['answer_id'];
+        $answer_id = explode(',',$answer);
+//        dd($question_id);
+//循环数据把转换成数组的数据循环查询下，查询完并添加一个新的字段，把查出啦id值添加到这个新的字段里
+        foreach($question_id as $k=>$v){
+            $arr = DB::table('question')
+                ->where('question_id','=',$v)
+                ->get()
+                ->map(function($value){
+                    return (array)$value;
+                })
+                ->toArray();
+//            dd($arr);
+            $data[0]['questionId'][]=$arr[0];
+//            $question_id = $question::find($arr[0][0]);
+
+        }
+        foreach($answer_id as $k=>$v){
+            $add = DB::table('answer')
+                ->where('answer_id','=',$v)
+                ->get()
+                ->map(function($value){
+                    return (array)$value;
+                })
+                ->toArray();
+            $data[0]['answerId'][]=$add[0];
+//            $question_id = $question::find($arr[0][0]);
+        }
+
         //查找questtion里面的 id .取问题名，取完问题名字还要取到答案名字
-        $date = DB::table('test')->where('test_id','=',$pid)
-                    ->leftJoin('question','test.question_id','=','question.question_id')
-                    ->where('question.question_id','=',$question_id)
-                    ->leftJoin('answer','question.question_id','=','answer.question_id')
-                    ->where('answer.answer_id','=',$answer_id)
-                    ->orderBy('test_id','desc')
-                    ->get();
-//        dd($date);
-        return $date;
+
+
+
+//        $date = DB::table('test')->where('test_id','=',$pid)
+//                    ->leftJoin('question','test.question_id','=','question.question_id')
+//                    ->where('question.question_id','=',$question_id[$i])
+//                    ->leftJoin('answer','question.question_id','=','answer.question_id')
+//                    ->where('answer.answer_id','=',$answer_id[$i])
+//                    ->orderBy('test_id','desc')
+//                    ->get();
+
+//        dd($data);
+        return $data;
     }
     public function up_user($username,$email){
         $id = Auth::id();
