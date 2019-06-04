@@ -110,7 +110,7 @@
 <script src="../layui/layui.js"></script>
 
 <script>
-    function addcon() {
+    function addcon(obj) {
         var qid = $('#con').val();
         // alert(qid);
         console.log(qid);
@@ -119,9 +119,15 @@
             type:'get',
             data:{'q_id':qid},
             success:function(msg){
-                alert('收藏成功');
-                window.location.href ='/question/showOneQuestion?q_id={{$data[0]['question_id']}}';
-        }
+                if(msg == ''){
+                    alert('已收藏过一次');
+                }else{
+                    alert('收藏成功');
+                    window.location.href ='/question/showOneQuestion?q_id={{$data[0]['question_id']}}';
+                }
+
+        },
+
     })
     }
 </script>
@@ -132,6 +138,7 @@
         var au = $('#au').val();
         console.log(aid);
         console.log(au);
+        $('#col').attr("disabled","disabled");
         $.ajax({
             url:'../answer/collect',
             type:'get',
