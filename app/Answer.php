@@ -47,6 +47,7 @@ class Answer extends Model
             $res = DB::table('question')
                 ->where('question_id','=',$q)
                 ->update(['answer_id' => $aid,'status' => 1]);
+            DB::table('intgral')->insertGetId(['user_id'=>$id,'intgral'=>'4','todo'=>'回答问题+4积分']);
         }else {
 //            echo 2222222222;die;
             $l = $aaa;
@@ -55,6 +56,7 @@ class Answer extends Model
             $res = DB::table('question')
                 ->where('question_id', '=', $q)
                 ->update(['answer_id' => $k]);
+            DB::table('intgral')->insertGetId(['user_id'=>$id,'intgral'=>'4','todo'=>'回答问题+4积分']);
         }
         return $data;
 

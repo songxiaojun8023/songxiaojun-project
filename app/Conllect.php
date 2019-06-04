@@ -54,9 +54,10 @@ class Conllect extends Model
     //用户采纳
     public function getCollect($aid){
 //        print_r($aid);die;
-//        $uid = auth::id();
+        $uid = auth::id();
 ////        print_r($uid);
-        $data = DB::table('answer')->where('answer_id','=',$aid)->increment('conllect_num');
+        $data = DB::table('answer')->where('answer_id','=',$aid['a_id'])->increment('conllect_num');
+        DB::table('intgral')->insertGetId(['user_id'=>$aid['a_us'],'intgral'=>'5','todo'=>'被采纳+5积分']);
 
 //        print_r($data);die;
     }

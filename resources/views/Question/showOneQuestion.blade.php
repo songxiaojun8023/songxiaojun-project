@@ -79,7 +79,7 @@
             {{$data[0]['answerList'][$k]['answer']}}
         </span>
         <dd class="respondent">
-            <span class="putWrite">回答者：{{$data[0]['answerList'][$k]['name']}}</span>
+            <span class="putWrite"> 回答者：<input type="hidden" id="au" name="au" value="{{$data[0]['answerList'][$k]['uid']}}">{{$data[0]['answerList'][$k]['name']}}</span>
             &nbsp&nbsp&nbsp
             <span class="putTime">回答时间：{{$data[0]['answerList'][$k]['created_at']}}</span>
             {{--<a href="{{url('../answer/collect')}}?q_id={{$data[0]['answerList'][0]['answer_id']}}" class="layui-btn layui-btn-xs">采纳</a>--}}
@@ -129,11 +129,16 @@
 <script>
     function addcol(aid){
         // alert(id);
+        var au = $('#au').val();
         console.log(aid);
+        console.log(au);
         $.ajax({
             url:'../answer/collect',
             type:'get',
-            data:{'a_id':aid},
+            data:{
+                'a_id':aid,
+                'a_us':au
+            },
             success:function(msg){
                 alert('采纳成功');
                 window.location.href ='/question/showOneQuestion?q_id={{$data[0]['question_id']}}';
