@@ -31,20 +31,7 @@ class HomeController extends Controller
         $data['question']=$question->getQuestionLists();
         //有答案类表
         $data['questionAnswer']=$question->getQuestionAnswerList();
-<<<<<<< HEAD
-        //dd($data['questionAnswer']);
-        //echo count($data["questionAnswer"]);die;
-//            for($i=0;$i<count($data["questionAnswer"]);$i++){
-//                echo $i;
-//                echo $data["questionAnswer"][$i]['question']."<br>";
-//                echo $data['questionAnswer'][$i]['answerList']['answer']."<br>";
-//            }
-//
-//
-//        die;
-        //return $data;
-=======
->>>>>>> guopenghang
+
         return view('home',$data);
     }
 }
