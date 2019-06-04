@@ -81,7 +81,7 @@ class Conllect extends Model
 
     //用户采纳
     public function getCollect($aid){
-//        print_r($aid);die;
+//        print_r($aid['a_us']);die;
         $uid = auth::id();
 ////        print_r($uid);
         $data = DB::table('answer')->where('answer_id','=',$aid['a_id'])->increment('conllect_num');
