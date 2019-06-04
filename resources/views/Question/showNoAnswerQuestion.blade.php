@@ -79,7 +79,7 @@
                     alert('已收藏过一次');
                 }else{
                     alert('收藏成功');
-                    window.location.href ='/question/showOneQuestion?q_id={{$data[0]['question_id']}}';
+                    window.location.href ='../question/showQuestionList';
                 }
 
             },
