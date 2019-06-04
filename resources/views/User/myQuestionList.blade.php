@@ -13,6 +13,7 @@
     {{--<script src="/static/build/layui.js"></script>--}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};
@@ -22,6 +23,7 @@
                 elem: 'test1'
                 ,count: date.length
                 ,limit:3
+                ,layout: ['count', 'prev', 'page', 'next', 'skip']
                 ,jump: function(obj){
                     //模拟渲染
                     document.getElementById('asd').innerHTML = function(){

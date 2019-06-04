@@ -32,14 +32,20 @@ class Test extends Model
     }
     public function getAddTest(){
         $get = Input::get();
+
         $id = Auth::id();
+        $status = DB::table('users')->where('id','=',$id)->get();
+//        dd($get);
         $length = count($get['content']);
+        $date = [];
         for($i=0;$i<$length;$i++){
             $content = $get['content'][$i];
             $question_id = $get['headline'][$i];
 //            dd($content);
-            $data = DB::table('answer')->insertGetId(['answer'=>$content,'question_id'=>$question_id,'uid'=>$id]);
+
+            $date[] = DB::table('answer')->insertGetId(['answer'=>$content,'question_id'=>$question_id,'uid'=>$id]);
         }
+        $data = DB::table('test')->insertGetId(['uid'=>$id,'test_name'=>$get['test_name'],'status'=>$status[0]->status,'question_id'=>$get['headline'],'answer_id'=>$data]);
         if( $data ){
             return true;
         }else{

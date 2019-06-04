@@ -72,7 +72,7 @@ class User extends Authenticatable
         $id = Auth::id();
         $data = DB::table('conllect')
             ->leftJoin('question','conllect.question_id','=','question.question_id')
-            ->leftJoin('answer','question.question_id','=','answer.question_id')
+//            ->leftJoin('answer','question.question_id','=','answer.question_id')
             ->where('conllect.uid','=',$id)
             ->get();
 //        dd($data);

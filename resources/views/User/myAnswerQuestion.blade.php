@@ -30,6 +30,7 @@
                 elem: 'test1'
                 ,count: data.length
                 ,limit:3
+                ,layout: [' count', 'prev', 'page', 'next', 'skip']
                 ,jump: function(obj){
                     //模拟渲染
                     document.getElementById('asd').innerHTML = function(){
