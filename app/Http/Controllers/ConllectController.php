@@ -13,7 +13,8 @@ class ConllectController extends Controller
 //        dd($qid);
         $conllect = new Conllect();
         $data = $conllect->getConllect($qid);
-        return view('question.showOneQuestion')->with('data',$data);
-//        return ['code'=>200,'message'=>'ok'];
+//       dd($data);
+
+//        return view('question.showOneQuestion')->with('data',$data);
     }
 }

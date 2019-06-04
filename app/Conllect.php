@@ -25,13 +25,40 @@ class Conllect extends Model
 
     //用户收藏
     public function getConllect($qid){
-        print_r($qid['q_id']);die;
-        $data = DB::table('users')
-            ->insert('users','conllect_id','=',$qid['q_id'])
-            ->where()
-            ->get();
+//        print_r($qid);die;
+        $q = $qid['q_id'];
+        $uid = auth::id();
+//        print_r($uid);die;
 
-        print_r($data);die;
+        $data = DB::table('users')
+            ->select('conllect_id')
+            ->find($uid);
+//        echo $data->conllect_id;die;
+        if(empty($data->conllect_id)){
+            $res = DB::table('users')
+                ->where('id','=',$uid)
+                ->update(['conllect_id'=>$qid['q_id']]);
+        }else{
+            $a = $data->conllect_id;
+            $b = $a.",".$q;
+//            echo $b;die;
+            $res = DB::table('users')
+                ->where('id','=',$uid)
+                ->update(['conllect_id'=>$b]);
+        }
+//        dd($data);
         return $data;
+//        $result->first()
     }
+
+    //用户采纳
+    public function getCollect($aid){
+//        print_r($aid);die;
+//        $uid = auth::id();
+////        print_r($uid);
+        $data = DB::table('answer')->where('answer_id','=',$aid)->increment('conllect_num');
+
+//        print_r($data);die;
+    }
+
 }
