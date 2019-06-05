@@ -57,7 +57,8 @@
                 data:{
                     'content':content,
                     'headline':headline,
-                    'test_name':testPaper
+                    'test_name':testPaper,
+                    'timestamp':timestamp,
                 },
                 success:function(msg){
                     if(msg){
