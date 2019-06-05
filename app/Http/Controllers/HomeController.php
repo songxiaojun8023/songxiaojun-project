@@ -36,7 +36,6 @@ class HomeController extends Controller
         //print_r($data['question']);die;
         //有答案类表
         $data['questionAnswer']=$question->getQuestionAnswerList();
-
         return view('home',$data);
     }
 }

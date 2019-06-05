@@ -2,7 +2,9 @@
 @section('title', 'test')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
-    <div class="layui-card-header" align="center">卡片面板</div>
+    <div align="cneter">
+        <li class="layui-card-header" value="{{Auth::user()->id}}">试卷</li>
+    </div>
     @foreach($data as $v)
         <div class="layui-cardMyStartTest">
             <li class="layui-card-headerStart" name="headline" value="{{$v->question_id}}">{{$v->question}}</li>
@@ -35,8 +37,16 @@
             }
 
             var steamed = $('.layui-card-header').html();
+            var uid = $('.layui-card-header').val();
+            var timestamp = Date.parse(new Date());
+            var testPaper = steamed+timestamp+uid;
+            // console.log(uid);
+            // console.log(steamed);
+            // console.log(timestamp);
+            // console.log(testPaper);
              var headline = [];
-
+            alert(testPaper);
+            console.log(testPaper);
             $(".layui-card-headerStart").each(function(k,v){
                 headline.push($(v).val());
             })
@@ -47,12 +57,12 @@
                 data:{
                     'content':content,
                     'headline':headline,
-                    'steamed':steamed
+                    'test_name':testPaper
                 },
                 success:function(msg){
                     if(msg){
                         alert('成功');
-                        window.location.href = "http://guopenghang.tt/user/myCenter";
+                        window.location.href = "http://guopenghang.tt/user/myTest";
                     }
                 }
             })

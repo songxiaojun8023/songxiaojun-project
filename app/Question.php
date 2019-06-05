@@ -155,9 +155,11 @@ class Question extends Model
         $answer_id_arr = explode(',',trim($data[0]['answer_id'],","));
 //        unset($answer_id_arr[count($answer_id_arr-1)]);
 //         print_r($answer_id_arr);die;
+
         foreach ($answer_id_arr as $key=>$val){
             //取3条
 //            if($key < 3){
+
             $arr = DB::table('answer')
                 ->leftjoin('users','answer.uid','=','users.id')
                 ->where('answer.answer_id','=',$val)
@@ -172,9 +174,7 @@ class Question extends Model
                 $user_name = $user::find($arr[0]['uid']);
                 $data['user_name']=$user_name['name'];
 //            }
-
         }
-      //  dd($data);
 //        print_r($data);die;
         return $data;
     }

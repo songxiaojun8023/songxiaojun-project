@@ -8,10 +8,12 @@
 
     <dt id="asd" align="center"></dt>
     <div id="test1" align="center"></div>
+    <a href="/user/myCenter"class="layui-btn layui-btn-normal">返回</a>
 
     {{--<script src="/static/build/layui.js"></script>--}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};
@@ -21,6 +23,7 @@
                 elem: 'test1'
                 ,count: date.length
                 ,limit:3
+                ,layout: ['count', 'prev', 'page', 'next', 'skip']
                 ,jump: function(obj){
                     //模拟渲染
                     document.getElementById('asd').innerHTML = function(){

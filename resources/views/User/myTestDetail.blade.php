@@ -2,19 +2,34 @@
 @section('title', 'test')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
-    <div class="layui-card-header" align="center">卡片面板</div>
+    <div class="layui-card-header" align="center">{{$data[0]['test_name']}}</div>
     {{--@foreach($data as $v)--}}
-        <div class="layui-cardMyStartTest">
-            <li class="layui-card-headerStart" name="headline" value="{{}}"></li>
-            <div class="layui-card-body">
-                <textarea name="desc" placeholder="请输入内容" class="layui-textarea" ></textarea>
-            </div>
-        </div>
+    {{--@foreach($data as $v)--}}
+        {{--<div class="layui-cardMyStartTest">--}}
+            {{--<li class="layui-card-headerStart" name="headline" value="">{{$v->question}}</li>--}}
+            {{--<div class="layui-card-body">--}}
+                {{--<div name="desc" placeholder="请输入内容" class="layui-textarea" >{{$v->answer}}</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     {{--@endforeach--}}
-    <a href="/user/myTest">返回</a>
+    @for($i=0;$i<5;$i++)
+    <div class="layui-collapse">
+        <div class="layui-colla-item">
+            <h2 class="layui-colla-title">{{$data[0]['questionId'][$i]['question']}}</h2>
+            <div class="layui-colla-content layui-show">{{$data[0]['answerId'][$i]['answer']}}</div>
+        </div>
+    </div>
+    @endfor
+    {{--@endforeach--}}
+    <a href="/user/myTest"class="layui-btn layui-btn-normal">返回</a>
     {{--<script src="/static/build/layui.js"></script>--}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+        layui.use('element', function(){
+            var element = layui.element;
+
+            //…
+        });
         function start(){
             // var ddd = $('div[class="layui-card-headerStart"]').map(function(index,elem){
             //     return $(elem).html();
