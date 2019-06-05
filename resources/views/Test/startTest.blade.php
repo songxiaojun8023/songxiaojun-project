@@ -45,7 +45,8 @@
             // console.log(timestamp);
             // console.log(testPaper);
              var headline = [];
-
+            alert(testPaper);
+            console.log(testPaper);
             $(".layui-card-headerStart").each(function(k,v){
                 headline.push($(v).val());
             })
@@ -56,12 +57,13 @@
                 data:{
                     'content':content,
                     'headline':headline,
-                    'test_name':testPaper
+                    'test_name':testPaper,
+                    'timestamp':timestamp,
                 },
                 success:function(msg){
                     if(msg){
                         alert('成功');
-                        // window.location.href = "http://guopenghang.tt/user/myTest";
+                        window.location.href = "http://guopenghang.tt/user/myTest";
                     }
                 }
             })

@@ -35,7 +35,12 @@ class Test extends Model
 
         $id = Auth::id();
         $status = DB::table('users')->where('id','=',$id)->get();
-//        dd($get);
+        $question = implode(",",$get['headline']);
+//        for($i=0;$i<5;$i++){
+//            $headline = $get['headline'][$i];
+//            $aa[] = $headline+',';
+//        }
+//        dd($aa);
         $length = count($get['content']);
         $date = [];
         for($i=0;$i<$length;$i++){
@@ -45,7 +50,10 @@ class Test extends Model
 
             $date[] = DB::table('answer')->insertGetId(['answer'=>$content,'question_id'=>$question_id,'uid'=>$id]);
         }
-        $data = DB::table('test')->insertGetId(['uid'=>$id,'test_name'=>$get['test_name'],'status'=>$status[0]->status,'question_id'=>$get['headline'],'answer_id'=>$data]);
+        $aswer = implode(",",$date);
+//        dd($date);
+        $data = DB::table('test')->insertGetId(['uid'=>$id,'test_name'=>$get['test_name'],'status'=>$status[0]->status,'question_id'=>$question,'answer_id'=>$aswer]);
+
         if( $data ){
             return true;
         }else{

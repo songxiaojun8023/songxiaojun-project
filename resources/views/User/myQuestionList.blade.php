@@ -10,6 +10,7 @@
     <div id="test1" align="center"></div>
     <a href="/user/myCenter"class="layui-btn layui-btn-normal">返回</a>
 
+    {{--{{ date( "Y-m-d H : i : s", "1231231")}}--}}
     {{--<script src="/static/build/layui.js"></script>--}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
@@ -17,6 +18,7 @@
         layui.use('laypage', function(){
             var laypage = layui.laypage;
             var date = {!! $data !!};
+            // ''+item['created_at']+''
             console.log(date);
             //执行一个laypage实例
             laypage.render({
@@ -34,7 +36,7 @@
                             // arr.push('<button class="layui-btnMy layui-btn-fluidMy" >'+ item['question'] +'</button>');
                             // console.log(item['question_id']);
                             // arr.push('<button class="layui-btnMy layui-btn-fluidMy" id="aaa" onclick="tiao(this)" value="'+item['question_id']+'">'+ item['question'] +'</button>');
-                            arr.push('<a href="/question/showOneQuestion?q_id='+item['question_id']+'" class="layui-btnMy layui-btn-fluidMy" id="aaa" onclick="tiao()" value="'+item['question_id']+'">'+ item['question'] +'</a>');
+                        arr.push('<a href="/question/showOneQuestion?q_id='+item['question_id']+'" class="layui-btnMy layui-btn-fluidMy" id="aaa" onclick="tiao()" value="'+item['question_id']+'">'+ item['question'] +'</a>'+item['created_at']);
                         });
                         return arr.join('');
                     }();

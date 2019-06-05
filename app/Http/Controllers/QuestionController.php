@@ -22,7 +22,7 @@ class QuestionController extends Controller
     //分词搜索
     public function showQuestion(){
 
-        return view('question.showQuestion');
+        return view('Question.showQuestion');
     }
 
     //显示指定某个问题详情---问题，多个答案，作者，收藏，采纳
@@ -31,7 +31,12 @@ class QuestionController extends Controller
 //        dd($qid);
         $question = new Question();
         $data = $question->showOneQuestion($qid);
+<<<<<<< HEAD
+//        print_r($data[0]['answerList']);die;
         return view('question.showOneQuestion')->with('data',$data);
+=======
+        return view('Question.showOneQuestion')->with('data',$data);
+>>>>>>> guopenghang
 
     }
 
@@ -40,14 +45,14 @@ class QuestionController extends Controller
         $question = new Question();
         $data=$question->questionAnswerList();//return $data;
 //        print_r($data);die;
-        return  view('question.questionAnswerList')->with('data',json_encode($data));
+        return  view('Question.questionAnswerList')->with('data',json_encode($data));
     }
 
     //无答案问题列表
     public function showQuestionList(){
         $question = new Question();
         $data = $question->showQuestionList();//return $data;
-        return  view('question.showQuestionList')->with('data',json_encode($data));
+        return  view('Question.showQuestionList')->with('data',json_encode($data));
 
     }
 
@@ -58,17 +63,20 @@ class QuestionController extends Controller
         $question = new Question();
         $data = $question->showNoAnswerQuestion($qid);
 //        print_r($data);die;
-        return  view('question.showNoAnswerQuestion')->with('data',$data);
+        return  view('Question.showNoAnswerQuestion')->with('data',$data);
     }
 
     //发布问题--页面
     public function pushQuestion(){
-        return  view('question.pushQuestion');
+        return  view('Question.pushQuestion');
     }
 
     //图片识别
-    public function PicQuestion(){
+    public function PicQuestion(Request $request){
+       //echo  request()->yin();die;
        //dd($request->all());die;
+        $post = $request->all();
+
         if(request()->isMethod('post')){
 
 
@@ -157,8 +165,15 @@ class QuestionController extends Controller
 
             //        return ['code'=>200,'message'=>'ok'];
         }
+<<<<<<< HEAD
+            if(isset($post["yin"]) && !empty($post['yin'])){
+                return view('Iphone.picIphoneQuestion',["img"=>$img,"data"=>$array]);
+            }
+            return view('question.picQuestion',["img"=>$img,"data"=>$array]);
+=======
 
-        return view('question.picQuestion',["img"=>$img,"data"=>$array]);
+        return view('Question.picQuestion',["img"=>$img,"data"=>$array]);
+>>>>>>> guopenghang
     }
 
     //图片识别完成，编辑后上传试题

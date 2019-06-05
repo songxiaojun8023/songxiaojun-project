@@ -2,7 +2,7 @@
 @section('title', 'test')
 @section('content')
     <link rel="stylesheet" href="../layui/css/layui.css">
-    <div class="layui-card-header" align="center">{{$data[0]->test_name}}</div>
+    <div class="layui-card-header" align="center">{{$data[0]['test_name']}}</div>
     {{--@foreach($data as $v)--}}
     {{--@foreach($data as $v)--}}
         {{--<div class="layui-cardMyStartTest">--}}
@@ -12,14 +12,14 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--@endforeach--}}
-    @foreach($data as $v)
+    @for($i=0;$i<5;$i++)
     <div class="layui-collapse">
         <div class="layui-colla-item">
-            <h2 class="layui-colla-title">{{$v->question}}</h2>
-            <div class="layui-colla-content layui-show">{{$v->answer}}</div>
+            <h2 class="layui-colla-title">{{$data[0]['questionId'][$i]['question']}}</h2>
+            <div class="layui-colla-content layui-show">{{$data[0]['answerId'][$i]['answer']}}</div>
         </div>
     </div>
-    @endforeach
+    @endfor
     {{--@endforeach--}}
     <a href="/user/myTest"class="layui-btn layui-btn-normal">返回</a>
     {{--<script src="/static/build/layui.js"></script>--}}

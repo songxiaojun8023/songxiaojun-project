@@ -8,6 +8,11 @@ use App\User;
 
 class UserController extends Controller
 {
+    //定义接口需要的常量
+    const APP_ID = '16100280';
+    const API_KEY = '8hsZqb0WhPer7qQQqcjVKrYY';
+    const SECRET_KEY = 'UDZpw5XvTFYZSlUY6nri7qqPgUqNo2ze';
+
     //用户个人中心
     public function myCenter(){
         $question = new User();
@@ -20,17 +25,26 @@ class UserController extends Controller
         }
 
 //        dd($c);
-        return view('user.myCenter',['data'=>$c]);
+        return view('User.myCenter',['data'=>$c]);
     }
 
     //我发布的问题列表
     public function myQuestionList(){
         $question = new User();
         $data=$question->getMyQuestionList();//return $data;
+        $aa = json_decode(json_encode($data),true);
+        foreach($aa as &$v){
+            $v['created_at'] = date('Y-m-d H:i:s',$v['created_at']);
+            $v['updated_at'] = date('Y-m-d H:i:s',$v['updated_at']);
+        }
 
-        $v = json_encode($data);
-//        dd($v);
-        return view('user.myQuestionList',['data'=>$v]);
+//        dd($aa);
+//        dd($data);
+//        $data[0]->updated_at[]
+        $v = json_encode($aa);
+//        dd($time);
+
+        return view('User.myQuestionList',['data'=>$v])   ;
     }
 
     //我回答过的问题列表
@@ -38,14 +52,14 @@ class UserController extends Controller
         $question = new User();
         $data=$question->getMyAnswerQuestion();
         $v = json_encode($data);
-        return view('user.myAnswerQuestion',['data'=>$v]);
+        return view('User.myAnswerQuestion',['data'=>$v]);
     }
 
     //我的做过的试题列表
     public function myTest(){
         $question = new User();
         $data=$question->getMyTest();
-        return view('user.myTest',['data'=>$data]);
+        return view('User.myTest',['data'=>$data]);
     }
 
     //我的试题详情
@@ -53,7 +67,7 @@ class UserController extends Controller
         $question = new User();
         $data=$question->getMyTrstDetail();
 //        dd($data);
-        return view('user.myTestDetail',['data'=>$data]);
+        return view('User.myTestDetail',['data'=>$data]);
     }
 
     //删除指定试卷
@@ -66,7 +80,7 @@ class UserController extends Controller
 
         $question = new User();
         $data=$question->getMyCollect();
-        return view('user.myConllect',['data'=>$data]);
+        return view('User.myConllect',['data'=>$data]);
     }
 
     //删除我的收藏试题
@@ -82,12 +96,12 @@ class UserController extends Controller
 
     //用户基本信息
     public function myMessage(){
-        return view('user.myMessage');
+        return view('User.myMessage');
     }
 
     //修改个人信息
     public function editMyMessage(){
-        return view('user.editMyMessage');
+        return view('User.editMyMessage');
     }
 
     //处理修改
