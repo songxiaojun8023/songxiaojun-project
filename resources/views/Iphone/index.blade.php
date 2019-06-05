@@ -27,6 +27,7 @@
 <body>
 <div type="search" align="center" style="margin-top:20%;">
     <form action="{{url('Iphone/searchQuestion')}}" method="post">
+        @csrf
     <input type="text" style="width:45%;height: 35px" name="search">
     <button class="layui-btn layui-btn-radius layui-btn-normal">搜索<button><button type="button" class="layui-btn layui-btn-radius layui-btn-normal" onclick="url()">图片识别</button>
     </form>

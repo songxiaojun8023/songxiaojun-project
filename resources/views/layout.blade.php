@@ -42,7 +42,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-          {{ Auth::user()->name }}
+          {{ @Auth::user()->name }}
         </a>
       </li>
       <li class="layui-nav-item"><a class="dropdown-item" href="{{ route('logout') }}"
