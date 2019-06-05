@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -50,6 +51,8 @@ class User extends Authenticatable
 
         $id = Auth::id();
         $data = DB::table('question')->where('uid','=',$id)->orderBy('question_id','desc')->get();
+
+//        dd($data);
         return $data;
     }
     //我回答过的问题列表
