@@ -107,7 +107,19 @@ Route::get('/home', 'HomeController@index')->name('home');
     //图片识别测试
     Route::any('ai/addTest','AiController@addTest');
 
+//--------------------------------------------------------------------------------------------
+    //移动端
+    //搜索框显示
+    Route::any('Iphone/index','IphoneController@index');
 
+    //跳转图片识别搜索
+    Route::any('Iphone/imgsearchQuestion','IphoneController@imgsearchQuestion');
+
+    //搜索提交的控制器
+    Route::any('Iphone/searchQuestion','IphoneController@searchQusetion');
+
+    //图片识别搜索提交
+    Route::any('Iphone/moresearchQuestion','IphoneController@moresearchQuestion');
 
 
 

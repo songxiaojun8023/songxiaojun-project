@@ -7,17 +7,23 @@
 
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
 @if(Route::currentRouteName() != 'home')
-  	<link rel="stylesheet" href="../layui/css/layui.css">
-    <script src="../layui/layui.js"></script>
+  	<link rel="stylesheet" href="{{URL::asset('../layui/css/layui.css')}}">
+    <script src="{{URL::asset('../layui/layui.js')}}"></script>
     <script src="{{URL::asset('../js/jquery1.12.js')}}"></script>
   @else
-   <link rel="stylesheet" href="./layui/css/layui.css">
-    <script src="./layui/layui.js"></script>
+   <link rel="stylesheet" href="{{URL::asset('./layui/css/layui.css')}}">
+    <script src="{{URL::asset('./layui/layui.js')}}"></script>
     <script src="{{URL::asset('./js/jquery1.12.js')}}"></script>
     @endif
+  <style>
+
+    html{min-width: 1200px;}
+  </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -81,7 +87,7 @@
   </div>
 
 </div>
-<script src="../src/layui.js"></script>
+
 <script>
 //JavaScript代码区域
 layui.use('element', function(){

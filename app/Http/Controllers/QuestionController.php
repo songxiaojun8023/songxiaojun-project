@@ -67,8 +67,11 @@ class QuestionController extends Controller
     }
 
     //图片识别
-    public function PicQuestion(){
+    public function PicQuestion(Request $request){
+       //echo  request()->yin();die;
        //dd($request->all());die;
+        $post = $request->all();
+
         if(request()->isMethod('post')){
 
 
@@ -157,8 +160,10 @@ class QuestionController extends Controller
 
             //        return ['code'=>200,'message'=>'ok'];
         }
-
-        return view('question.picQuestion',["img"=>$img,"data"=>$array]);
+            if(isset($post["yin"]) && !empty($post['yin'])){
+                return view('Iphone.picIphoneQuestion',["img"=>$img,"data"=>$array]);
+            }
+            return view('question.picQuestion',["img"=>$img,"data"=>$array]);
     }
 
     //图片识别完成，编辑后上传试题

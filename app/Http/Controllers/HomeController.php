@@ -28,7 +28,12 @@ class HomeController extends Controller
         //实例化试题模型
         $question = new Question();
         //无答案列表
-        $data['question']=$question->getQuestionLists();
+       $cc=$question->getQuestionLists();
+        $data['question']=[];
+        for($i=1;$i<11;$i++){
+            $data['question'][] = $cc[count($cc)-$i];
+        }
+        //print_r($data['question']);die;
         //有答案类表
         $data['questionAnswer']=$question->getQuestionAnswerList();
 
