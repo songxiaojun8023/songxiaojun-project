@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-    class IPhoneController extends Controller{
+    class IphoneController extends Controller{
         public function index(){
             return view("Iphone/index");
         }
