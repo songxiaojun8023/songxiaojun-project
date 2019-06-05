@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="35f02204-aa9a-4ec8-b0c9-773bc0696365" name="xfwc_answer" url="http://123.56.145.227">
+        <fileTransfer host="123.56.145.227" port="22" rootFolder="/var/www/answer/www.songxiaojun.top" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
